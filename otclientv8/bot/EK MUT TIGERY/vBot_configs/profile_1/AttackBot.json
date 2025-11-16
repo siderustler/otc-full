@@ -1,0 +1,179 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "description": "[Adjacent] 3+ Any Creatures: exori gran, absolute (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 5,
+          "spell": "exori gran",
+          "pattern": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 3,
+          "minHp": 0,
+          "itemId": 0
+        },
+        {
+          "description": "[Adjacent] 2+ Any Creatures: exori, absolute (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 5,
+          "spell": "exori",
+          "pattern": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 2,
+          "minHp": 0,
+          "itemId": 0
+        },
+        {
+          "description": "[1 Sqm] 1+ Any Creatures: exori gran ico, targeted (50%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 1,
+          "spell": "exori gran ico",
+          "pattern": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 1,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 50,
+          "itemId": 0
+        },
+        {
+          "itemId": 0,
+          "mana": 1,
+          "minHp": 0,
+          "monsters": true,
+          "category": 1,
+          "spell": "exori hur",
+          "count": 1,
+          "creatures": "*",
+          "tooltip": false,
+          "patternCategory": 1,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[5 Sqm] 1+ Any Creatures: exori hur, targeted (0%-100%)",
+          "pattern": 5
+        },
+        {
+          "description": "[1 Sqm] 1+ Any Creatures: exori ico, targeted (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 1,
+          "spell": "exori ico",
+          "pattern": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 1,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 0
+        }
+      ],
+      "Visible": false,
+      "ignoreMana": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false,
+      "PvpSafe": false,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": true,
+      "enabled": true,
+      "name": "Profile #1",
+      "Kills": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "ignoreMana": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #2",
+      "Kills": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "ignoreMana": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #3",
+      "Kills": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "ignoreMana": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #4",
+      "Kills": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "ignoreMana": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #5",
+      "Kills": false
+    }
+  ],
+  "currentBotProfile": 1
+}

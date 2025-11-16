@@ -1,0 +1,107 @@
+hotkeys:
+  4:
+    useType: 1
+    autoSend: false
+    itemId: 238
+  F9:
+    autoSend: true
+    value: exori con
+  Shift+F1:
+    useType: 3
+    autoSend: false
+    itemId: 3148
+  R:
+    useType: 2
+    autoSend: false
+    itemId: 3165
+  PageUp:
+    autoSend: true
+    value: exani hur "up
+  F6:
+    useType: 3
+    autoSend: false
+    itemId: 3161
+  F5:
+    autoSend: true
+    value: exana vita
+  5:
+    autoSend: true
+    value: ghost shoot
+  F7:
+    useType: 3
+    autoSend: false
+    itemId: 3191
+  7:
+    useType: 3
+    autoSend: false
+    itemId: 3180
+  F3:
+    autoSend: false
+    value: exori nuke
+  Shift+F3:
+    useType: 3
+    autoSend: false
+    itemId: 3192
+  F11:
+    autoSend: true
+    value: exevo mas san
+  G:
+    autoSend: true
+    value: exori hur max
+  CapsLock:
+    useType: 3
+    autoSend: false
+    itemId: 3180
+  Shift+F2:
+    useType: 1
+    autoSend: false
+    itemId: 945
+  1:
+    useType: 3
+    autoSend: false
+    itemId: 3156
+  3:
+    autoSend: true
+    value: exevo tera hur
+  9:
+    useType: 2
+    autoSend: false
+    itemId: 3155
+  6:
+    useType: 3
+    autoSend: false
+    itemId: 3308
+  8:
+    useType: 2
+    autoSend: false
+    itemId: 3165
+  F1:
+    autoSend: false
+    itemId: 23375
+  Shift+F4:
+    autoSend: false
+  F10:
+    useType: 3
+    autoSend: false
+    itemId: 3197
+  F2:
+    useType: 3
+    autoSend: false
+    itemId: 238
+  F12:
+    autoSend: true
+    value: exori nuke
+  2:
+    useType: 3
+    autoSend: false
+    itemId: 238
+  F8:
+    autoSend: true
+    value: utamo tempo san
+  F4:
+    useType: 1
+    autoSend: false
+    itemId: 237
+  PageDown:
+    autoSend: true
+    value: exani hur "down

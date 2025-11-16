@@ -1,0 +1,114 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2866
+      },
+      {
+        "count": 1,
+        "id": 2867
+      },
+      {
+        "count": 1,
+        "id": 2865
+      },
+      {
+        "count": 1,
+        "id": 7342
+      },
+      {
+        "count": 1,
+        "id": 9602
+      },
+      {
+        "count": 1,
+        "id": 2869
+      },
+      {
+        "count": 1,
+        "id": 21411
+      },
+      {
+        "count": 1,
+        "id": 5949
+      },
+      {
+        "count": 1,
+        "id": 2871
+      },
+      {
+        "count": 1,
+        "id": 8860
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 300,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "regex": "^cobra assassin$|^cobra scout$|^cobra vizier$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": true,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 4,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 3,
+      "anchor": false,
+      "closeLureAmount": 1,
+      "rePosition": false,
+      "name": "Cobra Assassin, Cobra Scout, Cobra Vizier",
+      "rpSafe": false
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "regex": "^cobra$",
+      "dynamicLureDelay": false,
+      "priority": 6,
+      "dynamicLure": false,
+      "keepDistance": false,
+      "danger": 1,
+      "chase": true,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 2,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Cobra",
+      "rpSafe": false
+    }
+  ]
+}

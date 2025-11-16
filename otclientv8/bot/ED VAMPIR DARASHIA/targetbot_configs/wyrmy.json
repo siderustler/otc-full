@@ -1,0 +1,181 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 8043
+      },
+      {
+        "count": 1,
+        "id": 9665
+      },
+      {
+        "count": 1,
+        "id": 3028
+      },
+      {
+        "count": 1,
+        "id": 9685
+      },
+      {
+        "count": 1,
+        "id": 5911
+      },
+      {
+        "count": 15,
+        "id": 18927
+      },
+      {
+        "count": 39,
+        "id": 11449
+      },
+      {
+        "count": 28,
+        "id": 3030
+      },
+      {
+        "count": 28,
+        "id": 3027
+      },
+      {
+        "count": 1,
+        "id": 18929
+      },
+      {
+        "count": 1,
+        "id": 18928
+      },
+      {
+        "count": 40,
+        "id": 18924
+      },
+      {
+        "count": 3,
+        "id": 3039
+      },
+      {
+        "count": 3,
+        "id": 649
+      },
+      {
+        "count": 5,
+        "id": 11446
+      },
+      {
+        "count": 1,
+        "id": 18925
+      },
+      {
+        "count": 1,
+        "id": 3026
+      },
+      {
+        "count": 1,
+        "id": 10320
+      },
+      {
+        "count": 1,
+        "id": 8531
+      },
+      {
+        "count": 1,
+        "id": 12306
+      },
+      {
+        "count": 1,
+        "id": 3567
+      },
+      {
+        "count": 1,
+        "id": 8045
+      },
+      {
+        "count": 1,
+        "id": 3434
+      },
+      {
+        "count": 1,
+        "id": 3284
+      },
+      {
+        "count": 1,
+        "id": 3081
+      },
+      {
+        "count": 1,
+        "id": 12320
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 250,
+      "lureMin": 2,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Vampire Viscount,Vampire,Blood Priest,Vampire Bride,Banshee",
+      "keepDistance": true,
+      "keepDistanceRange": 2,
+      "danger": 1,
+      "dynamicLureDelay": true,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 2,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^vampire viscount$|^vampire$|^blood priest$|^vampire bride$|^banshee$"
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "regex": "^scorpion$",
+      "chase": true,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": false,
+      "dynamicLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 2,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Scorpion",
+      "rpSafe": false
+    }
+  ]
+}

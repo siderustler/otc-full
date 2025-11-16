@@ -1,0 +1,136 @@
+{
+  "ConditionPanel": {
+    "cureBurn": false,
+    "curseCost": 80,
+    "electrifyCost": 22,
+    "ignoreInPz": false,
+    "bleedCost": 45,
+    "cureCurse": false,
+    "holdHaste": true,
+    "curePosion": false,
+    "hasteSpell": "utani tempo hur",
+    "cureParalyse": false,
+    "stopHaste": true,
+    "cureBleed": false,
+    "holdUtura": false,
+    "paralyseSpell": "utani hur",
+    "utanaCost": 440,
+    "uturaType": "",
+    "poisonCost": 20,
+    "utamoCost": 40,
+    "enabled": true,
+    "uturaCost": 100,
+    "cureElectrify": false,
+    "holdUtamo": false,
+    "paralyseCost": 40,
+    "hasteCost": 40,
+    "holdUtana": false,
+    "burnCost": 30
+  },
+  "currentHealBotProfile": 1,
+  "healbot": [
+    {
+      "MessageDelay": false,
+      "Conditions": false,
+      "itemTable": [
+        {
+          "enabled": true,
+          "origin": "HP%",
+          "value": 45,
+          "item": 7643,
+          "index": 1,
+          "sign": "<"
+        },
+        {
+          "enabled": true,
+          "origin": "MP%",
+          "value": 99,
+          "item": 237,
+          "index": 2,
+          "sign": "<"
+        }
+      ],
+      "Delay": false,
+      "Visible": false,
+      "Cooldown": false,
+      "spellTable": [
+        {
+          "enabled": true,
+          "value": 90,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exana mort",
+          "index": 1,
+          "cost": 1
+        }
+      ],
+      "enabled": true,
+      "name": "Profile #1",
+      "Interval": false
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #2",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #3",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #4",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #5",
+      "Interval": true
+    }
+  ]
+}

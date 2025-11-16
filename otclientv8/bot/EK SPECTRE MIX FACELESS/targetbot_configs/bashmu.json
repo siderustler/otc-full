@@ -1,0 +1,107 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3065
+      },
+      {
+        "count": 1,
+        "id": 10438
+      },
+      {
+        "count": 1,
+        "id": 23542
+      },
+      {
+        "count": 1,
+        "id": 23544
+      },
+      {
+        "count": 24,
+        "id": 5944
+      },
+      {
+        "count": 99,
+        "id": 21197
+      },
+      {
+        "count": 29,
+        "id": 16135
+      },
+      {
+        "count": 69,
+        "id": 21182
+      },
+      {
+        "count": 7,
+        "id": 3034
+      },
+      {
+        "count": 94,
+        "id": 3202
+      },
+      {
+        "count": 1,
+        "id": 8072
+      },
+      {
+        "count": 21,
+        "id": 3130
+      },
+      {
+        "count": 33,
+        "id": 5021
+      },
+      {
+        "count": 1,
+        "id": 814
+      },
+      {
+        "count": 1,
+        "id": 23529
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 220,
+      "lureMin": 3,
+      "maxDistance": 10,
+      "anchorRange": 2,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 7,
+      "lureMax": 5,
+      "regex": "^gazer spectre$|^burster spectre$|^ripper spectre$|^arachnophobica$",
+      "chase": true,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 1,
+      "anchor": false,
+      "closeLureAmount": 2,
+      "rePosition": true,
+      "name": "Gazer spectre, burster spectre, ripper spectre, arachnophobica",
+      "rpSafe": false
+    }
+  ]
+}

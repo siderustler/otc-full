@@ -1,0 +1,75 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 400,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "regex": "^fury$|^spectre$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 1,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Fury,Spectre",
+      "rpSafe": false
+    },
+    {
+      "lureDelay": 760,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 15,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Execowtioner,Minotaur amazon, worm priestess, moohtant",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "danger": 1,
+      "dynamicLureDelay": true,
+      "delayFrom": 5,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^execowtioner$|^minotaur amazon$|^worm priestess$|^moohtant$"
+    }
+  ]
+}

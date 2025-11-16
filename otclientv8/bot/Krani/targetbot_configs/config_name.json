@@ -1,0 +1,71 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3392
+      },
+      {
+        "count": 1,
+        "id": 3386
+      },
+      {
+        "count": 1,
+        "id": 3079
+      },
+      {
+        "count": 0,
+        "id": 3035
+      },
+      {
+        "count": 1,
+        "id": 3436
+      },
+      {
+        "count": 1,
+        "id": 3554
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2854
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 250,
+      "lureMin": 2,
+      "maxDistance": 7,
+      "anchorRange": 10,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Western Nightstalker, Behemoth",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "danger": 10,
+      "dynamicLureDelay": true,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^western nightstalker$|^behemoth$"
+    }
+  ]
+}

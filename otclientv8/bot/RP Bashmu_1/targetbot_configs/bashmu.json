@@ -1,0 +1,91 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3065
+      },
+      {
+        "count": 1,
+        "id": 10438
+      },
+      {
+        "count": 1,
+        "id": 23542
+      },
+      {
+        "count": 1,
+        "id": 23544
+      },
+      {
+        "count": 24,
+        "id": 5944
+      },
+      {
+        "count": 99,
+        "id": 21197
+      },
+      {
+        "count": 29,
+        "id": 16135
+      },
+      {
+        "count": 69,
+        "id": 21182
+      },
+      {
+        "count": 7,
+        "id": 3034
+      },
+      {
+        "count": 94,
+        "id": 3202
+      },
+      {
+        "count": 1,
+        "id": 814
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 600,
+      "lureMin": 2,
+      "maxDistance": 10,
+      "anchorRange": 1,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Bashmu, Juvenile Bashmu",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "danger": 1,
+      "dynamicLureDelay": true,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": true,
+      "lure": false,
+      "anchor": true,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^bashmu$|^juvenile bashmu$"
+    }
+  ]
+}

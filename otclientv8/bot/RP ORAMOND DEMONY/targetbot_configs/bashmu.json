@@ -1,0 +1,107 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3065
+      },
+      {
+        "count": 1,
+        "id": 10438
+      },
+      {
+        "count": 1,
+        "id": 23542
+      },
+      {
+        "count": 1,
+        "id": 23544
+      },
+      {
+        "count": 24,
+        "id": 5944
+      },
+      {
+        "count": 99,
+        "id": 21197
+      },
+      {
+        "count": 29,
+        "id": 16135
+      },
+      {
+        "count": 69,
+        "id": 21182
+      },
+      {
+        "count": 33,
+        "id": 5021
+      },
+      {
+        "count": 1,
+        "id": 814
+      },
+      {
+        "count": 1,
+        "id": 9660
+      },
+      {
+        "count": 100,
+        "id": 6499
+      },
+      {
+        "count": 76,
+        "id": 3731
+      },
+      {
+        "count": 1,
+        "id": 7393
+      },
+      {
+        "count": 83,
+        "id": 3034
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 450,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 2,
+      "regex": "^demon$|^grim reaper$|^metal gargoyle$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": true,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 2,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": true,
+      "delayFrom": 2,
+      "anchor": false,
+      "closeLureAmount": 2,
+      "rePosition": false,
+      "name": "Demon, Grim Reaper, Metal gargoyle",
+      "rpSafe": false
+    }
+  ]
+}

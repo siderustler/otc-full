@@ -1,0 +1,27 @@
+{
+  "supplies": {
+    "currentProfile": "Default",
+    "Default": {
+      "item3Max": "12",
+      "item6": 0,
+      "item2Min": "150",
+      "item3Min": "1",
+      "item1Min": "80",
+      "item2Max": "1400",
+      "item6Min": 0,
+      "item6Max": 0,
+      "item1": 238,
+      "capValue": 0,
+      "item1Max": "300",
+      "item5Max": 0,
+      "item4Min": 0,
+      "item5": 0,
+      "staminaValue": 0,
+      "item5Min": 0,
+      "item2": 3155,
+      "item4Max": 0,
+      "item3": 3052,
+      "item4": 0
+    }
+  }
+}

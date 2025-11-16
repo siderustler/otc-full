@@ -1,0 +1,179 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "description": "[Medium Area] 5+ Any Creatures: exevo gran mas frigo, absolute (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo gran mas frigo",
+          "pattern": 4,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 5,
+          "minHp": 0,
+          "itemId": 0
+        },
+        {
+          "description": "[3x3 Wave] 3+ Any Creatures: exevo tera hur, absolute (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo tera hur",
+          "pattern": 2,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 3,
+          "minHp": 0,
+          "itemId": 0
+        },
+        {
+          "description": "[Ball] 1+ Any Creatures: rune 3191, area (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 2,
+          "spell": "spell name",
+          "pattern": 3,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 2,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 3191
+        },
+        {
+          "itemId": 0,
+          "mana": 1,
+          "minHp": 0,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo gran frigo hur",
+          "count": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[Small Wave] 1+ Any Creatures: exevo gran frigo hur, absolute (0%-100%)",
+          "pattern": 9
+        },
+        {
+          "pattern": 4,
+          "mana": 1,
+          "description": "[Medium Area] 5+ Any Creatures: exevo ulus tera, absolute (0%-100%)",
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo ulus tera",
+          "orMore": true,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 5,
+          "minHp": 0,
+          "itemId": 0
+        }
+      ],
+      "Visible": false,
+      "Kills": false,
+      "name": "Profile #1",
+      "ignoreMana": true,
+      "Rotate": true,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": false,
+      "enabled": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #2",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #3",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #4",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #5",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    }
+  ],
+  "currentBotProfile": 1
+}

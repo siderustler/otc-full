@@ -1,0 +1,123 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 0,
+        "id": 3043
+      },
+      {
+        "count": 1,
+        "id": 3392
+      },
+      {
+        "count": 1,
+        "id": 3386
+      },
+      {
+        "count": 1,
+        "id": 7402
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2854
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 150,
+      "lureMin": 1,
+      "maxDistance": 4,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 2,
+      "regex": "^dragon lord$",
+      "dynamicLureDelay": true,
+      "priority": 1,
+      "dynamicLure": true,
+      "keepDistance": false,
+      "danger": 1,
+      "chase": true,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 1,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Dragon Lord",
+      "rpSafe": false
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "rpSafe": false,
+      "chase": true,
+      "priority": 10,
+      "name": "Wyvern,Rotworm",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "dynamicLureDelay": false,
+      "danger": 1,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": true,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": false,
+      "regex": "^wyvern$|^rotworm$"
+    },
+    {
+      "lureDelay": 431,
+      "lureMin": 5,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 8,
+      "regex": "^.*$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": false,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": true,
+      "diamondArrows": false,
+      "delayFrom": 5,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "*",
+      "rpSafe": false
+    }
+  ]
+}

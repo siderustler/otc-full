@@ -1,0 +1,181 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "pattern": 9,
+          "mana": 1,
+          "description": "[9 Sqm Range] 1+ Any Creatures: rune 3157, targeted (0%-100%)",
+          "monsters": true,
+          "category": 3,
+          "spell": "exori vis",
+          "orMore": true,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 3,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 3157
+        },
+        {
+          "itemId": 0,
+          "mana": 15,
+          "minHp": 0,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo gran mas tera",
+          "count": 2,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[Large Area] 2+ Any Creatures: exevo gran mas tera, absolute (0%-100%)",
+          "pattern": 5
+        },
+        {
+          "itemId": 0,
+          "mana": 26,
+          "minHp": 0,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo gran mas frigo",
+          "count": 2,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[Medium Area] 2+ Any Creatures: exevo gran mas frigo, absolute (0%-100%)",
+          "pattern": 4
+        },
+        {
+          "pattern": 7,
+          "mana": 1,
+          "description": "[7 Sqm Range] 1+ Creatures: rune 3155, targeted (0%-100%)",
+          "monsters": [
+            "behemoth"
+          ],
+          "category": 3,
+          "spell": "spell name",
+          "orMore": true,
+          "creatures": "behemoth",
+          "tooltip": "behemoth",
+          "patternCategory": 3,
+          "enabled": false,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 3155
+        },
+        {
+          "description": "[3 Sqm] 1+ Any Creatures: exevo gran mas vis, targeted (0%-100%)",
+          "mana": 15,
+          "orMore": true,
+          "monsters": true,
+          "category": 1,
+          "spell": "exevo gran mas vis",
+          "pattern": 3,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 1,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 0
+        }
+      ],
+      "Visible": false,
+      "Kills": false,
+      "name": "Profile #1",
+      "ignoreMana": false,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": false,
+      "pvpMode": false,
+      "PvpSafe": false,
+      "enabled": true,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #2",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #3",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #4",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "name": "Profile #5",
+      "ignoreMana": true,
+      "Rotate": false,
+      "AntiRsRange": 5,
+      "Cooldown": true,
+      "pvpMode": false,
+      "PvpSafe": true,
+      "enabled": false,
+      "KillsAmount": 1,
+      "BlackListSafe": false
+    }
+  ],
+  "currentBotProfile": 1
+}

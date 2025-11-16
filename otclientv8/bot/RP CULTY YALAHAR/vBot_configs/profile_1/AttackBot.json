@@ -1,0 +1,130 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "description": "[Ball] 2+ Creatures: rune 3161, area (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": [
+            "enlightened of the cult",
+            " adept of the cult",
+            " acolyte of the cult",
+            " novice of the cult"
+          ],
+          "category": 2,
+          "spell": "spell name",
+          "pattern": 3,
+          "creatures": "enlightened of the cult, adept of the cult, acolyte of the cult, novice of the cult",
+          "tooltip": "enlightened of the cult, adept of the cult, acolyte of the cult, novice of the cult",
+          "patternCategory": 2,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 2,
+          "minHp": 0,
+          "itemId": 3161
+        },
+        {
+          "description": "[7 Sqm] 1+ Any Creatures: exori con, targeted (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 1,
+          "spell": "exori con",
+          "pattern": 7,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 1,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 0
+        }
+      ],
+      "Visible": false,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": false,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": true,
+      "enabled": true,
+      "name": "Profile #1",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #2",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #3",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #4",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #5",
+      "BlackListSafe": false
+    }
+  ],
+  "currentBotProfile": 1
+}

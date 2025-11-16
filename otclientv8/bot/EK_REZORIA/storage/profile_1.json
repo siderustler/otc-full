@@ -1,0 +1,483 @@
+{
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "ingame_hotkeys": "local healthId = 7643\nlocal healthPercent = 90\nmacro(200, \"faster health potting\",  function()\n  if (hppercent() <= healthPercent) then\n    usewith(healthId, player) \n  end\nend)\n\n\n\n\nlocal hpPercent = 95\nmacro(50, \"faster healing\",  function()\n if (hppercent() <= hpPercent) then\n say(storage.HealText)\nend\nend)\naddTextEdit(\"HealText\", storage.HealText or \"exana mort\", function(widget, text)\nstorage.HealText = text\nend)\n\nlocal manaId = 268 \nlocal manaPercent = 50\nmacro(200, \"faster mana potting\",  function()\n if (manapercent() <= manaPercent) then\n   usewith(manaId, player)\n end\nend)\n\n\nmacro(1000, \"Spam UE\",  function()      say(storage.spamue)    end) addTextEdit(\"Spam Ue\", storage.spamue or \"exevo gran mas frigo\", function (widget, text) storage.spamue = text end)\n\nmacro(1000, \"Spam Target\",  function()      say(storage.spamtt)    end) addTextEdit(\"TT\", storage.spamtt or \"exori hur max\", function (widget, text) storage.spamtt = text end)\n\nFollow = macro(1000,\"Follow\",function()\n\nnome = storage.followLeader\nend)\n\nUI.Label(\"Follow Player:\")\naddTextEdit(\"playerToFollow\", storage.followLeader or \"Heeey\", function(widget, text)\n   storage.followLeader = text\n   target = tostring(text)\nend)\n\nnome = storage.followLeader\npos_p = player:getPosition()\n\np = getCreatureByName(nome)\n\nonCreaturePositionChange(function(creature, newPos, oldPos)\n   if Follow.isOn() then\n \n       if creature:getName()==player:getName() and getCreatureByName(nome) == nil and newPos.z>oldPos.z then\n     \n           say('exani tera')\n           for i = -1,1 do\n             for j = -1,1 do\n         \n               local useTile = g_map.getTile({x=posx()+i,y=posy()+j,z=posz()})\n                g_game.use(useTile:getTopUseThing())\n             \n         \n             end\n           end\n       end\n       if creature:getName()==nome then\n       \n         \n           if newPos==nil then\n             \n             \n               lastPos = oldPos\n             \n               schedule(200,function()\n                autoWalk(oldPos)\n               end)\n             \n               schedule(1000,function()\n                   for i = -1,1 do\n                     for j = -1,1 do\n                 \n                       local useTile = g_map.getTile({x=posx()+i,y=posy()+j,z=posz()})\n                       g_game.use(useTile:getTopUseThing())\n                     \n                 \n                     end\n                   end\n               end)\n         \n         \n           end\n         \n           if oldPos.z == newPos.z then\n                 \n               schedule(300,function()\n                local useTile = g_map.getTile({x=oldPos.x,y=oldPos.y,z=oldPos.z})\n                topThing = useTile:getTopThing()\n             \n                if not useTile:isWalkable() then\n                  use(topThing)\n                end\n             \n               end)\n         \n         \n               autoWalk({x=oldPos.x,y=oldPos.y,z=oldPos.z})\n           else\n         \n               lastPos = oldPos\n               autoWalk(oldPos)\n               for i = 1,6 do\n                   schedule(i*200,function()\n                     autoWalk(oldPos)\n                 \n                     if getDistanceBetween(pos(), oldPos) == 0 and (posz()>newPos.z and getCreatureByName(nome) == nil) then\n                       say('exani tera')\n                     end\n                   end)\n               end\n               local useTile = g_map.getTile({x=newPos.x,y=newPos.y-1,z=oldPos.z})\n                g_game.use(useTile:getTopUseThing())\n                         \n         \n           end\n       \n     \n       end\n \n   end\nend)\n\n\n\n\nlocal dropItems = { 3031, 3035 }\nlocal maxStackedItems = 10\nlocal dropDelay = 600\n\ngpAntiPushDrop = macro(dropDelay , \"Anti-Push\", function ()\n antiPush()\nend)\n\nonPlayerPositionChange(function()\n   antiPush()\nend)\n\nfunction antiPush()\n if gpAntiPushDrop:isOff() then\n   return\n end\n\n local tile = g_map.getTile(pos())\n if tile and tile:getThingCount() < maxStackedItems then\n   local thing = tile:getTopThing()\n   if thing and not thing:isNotMoveable() then\n     for i, item in pairs(dropItems) do\n       if item ~= thing:getId() then\n           local dropItem = findItem(item)\n           if dropItem then\n             g_game.move(dropItem, pos(), 1)\n           end\n       end\n     end\n   end\n end\nend\n\n\nmacro(500, \"Auto Haste\", nil, function()\n   if not hasHaste() and storage.autoHasteText:len() > 0 then\n     if saySpell(storage.autoHasteText) then\n       delay(5000)\n     end\n   end\n end)\n addTextEdit(\"autoHasteText\", storage.autoHasteText or \"utani hur\", function(widget, text)\n   storage.autoHasteText = text\nend)\n\nUI.Separator()\n\nUI.Label(\"Skrypty EXP\")\n\nmacro(10*1000, \"Stamina Refil (40h)\", function() \n  local minimalStamina = 60*40\n  local staminadollId = 11785\n  stamina = g_game.getLocalPlayer():getStamina()\n  if stamina < minimalStamina then use(staminadollId) end\nend)\n\n\nlocal heart_id = 6568\nmacro(7000, \"50% BOOST\", function()\nif isInPz() then return end\n local heart = findItem(heart_id) \nif (heart) then\n use(heart_id);\n end\nend)\n\nUI.Separator()\n\nlocal title = UI.Label(\"Exp Gain\")\ntitle:setColor(\"orange\")\nUI.Separator()\n\nlocal expgain = 0\nlocal startTime = os.time()  -- Start time\nlocal expLabel = UI.DualLabel(\"Exp:\", \"0\", contentsPanel).right\nlocal expPerHourLabel = UI.DualLabel(\"XP/h:\", \"0\", contentsPanel).right\n\nlocal m = macro(5000, \"Start\", function() end)\n\nUI.Button(\"Reset\", function()\n    expgain = 0\n    startTime = os.time()  -- Reset start time\n    expLabel:setText(format_thousand(expgain))\n    expPerHourLabel:setText(\"0\")\nend)\n\n\nfunction format_thousand(num)\n    local numStr = tostring(num)\n    local formatted = \"\"\n    local count = 0\n\n    for i = #numStr, 1, -1 do\n        count = count + 1\n        formatted = numStr:sub(i, i) .. formatted\n        if count % 3 == 0 and i ~= 1 then\n            formatted = \",\" .. formatted\n        end\n    end\n\n    return formatted\nend\n\nlocal function updateExpPerHour()\n    local elapsedTime = os.time() - startTime\n    local hoursElapsed = elapsedTime / 3600  -- convert seconds to hours\n    local xpPerHour = expgain / hoursElapsed\n    expPerHourLabel:setText(format_thousand(math.floor(xpPerHour)))\nend\n\nonTextMessage(function(mode, text)\n    if m.isOff() then return end\n    if mode ~= 28 then return end\n    if string.match(text, \"experience points.\") then\n        local regex = 'You gained ([0-9]*) experience points.'\n        local data = regexMatch(text, regex)[1]\n        if data then\n            local m_xp = tonumber(data[2]:trim(g))  -- convert to number\n            if m_xp then\n                expgain = expgain + m_xp\n                expLabel:setText(format_thousand(expgain))\n                updateExpPerHour()  -- Update XP/h label\n            end\n        end\n    end\nend)\nUI.Separator()",
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "trackedBoss": [
+
+    ],
+    "rarityFrames": true,
+    "outfits": {
+      "Dragon": {
+        "feet": 0,
+        "legs": 0,
+        "addons": 0,
+        "type": 34,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Wyvern": {
+        "feet": 0,
+        "legs": 0,
+        "addons": 0,
+        "type": 239,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Dragon Lord": {
+        "feet": 0,
+        "legs": 0,
+        "addons": 0,
+        "type": 39,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      }
+    }
+  },
+  "spamue": "exori mas",
+  "checkVersion": 1755950189,
+  "newHealer": {
+    "settings": [
+      {
+        "type": "HealItem",
+        "value": 268,
+        "text": "Mana Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 6,
+        "text": "Item Range: "
+      },
+      {
+        "type": "HealItem",
+        "value": 3160,
+        "text": "Health Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 2,
+        "text": "Mas Res Players: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Heal Friend at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Use Gran Sio at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Min Player HP%: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 50,
+        "text": "Min Player MP%: "
+      }
+    ],
+    "groups": [
+
+    ],
+    "customPlayers": [
+
+    ],
+    "conditions": {
+      "party": true,
+      "knights": true,
+      "friends": true,
+      "botserver": false,
+      "paladins": true,
+      "druids": true,
+      "sorcerers": true,
+      "guild": true
+    },
+    "enabled": false,
+    "priorities": [
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": false,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "normal": true,
+        "enabled": false,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": false,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": true,
+        "name": "Health Item"
+      },
+      {
+        "enabled": false,
+        "name": "Mana Item",
+        "mana": true
+      }
+    ],
+    "vocations": [
+
+    ]
+  },
+  "autoTradeMessage": "I'm using OTClientV8!",
+  "spamtt": "exori hur max",
+  "HealText": "exana mort",
+  "BotServerChannel": "6749706758920",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "onShootEnabled": false,
+    "item": 3155,
+    "serverLeaderTarget": false,
+    "onCastEnabled": false,
+    "serverEnabled": false,
+    "attack": "",
+    "onSayEnabled": false,
+    "sayLeader": "",
+    "spell": "",
+    "shootLeader": "",
+    "attackItemToggle": false,
+    "followLeaderEnabled": false,
+    "commandsEnabled": true,
+    "sayPhrase": "",
+    "serverTriggers": true,
+    "serverLeader": "",
+    "enabled": false,
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "rope": 9596,
+    "pathfinding": true,
+    "bless": true,
+    "machete": 9596,
+    "separatePm": false,
+    "highlightTarget": true,
+    "gotoMaxDistance": 30,
+    "holdWgHot": "F6",
+    "holdMwall": true,
+    "checkPlayer": true,
+    "looting": 40,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "F5",
+    "nextBackpack": true,
+    "shovel": 9596,
+    "lootDelay": 200,
+    "title": true,
+    "autoOpenDoors": true,
+    "stake": false,
+    "scythe": 9596,
+    "oberon": true,
+    "huntRoutes": 50,
+    "antiKick": true,
+    "talkDelay": 1000,
+    "reachable": false,
+    "killUnder": 1,
+    "reUse": false,
+    "height": 360,
+    "timers": true
+  },
+  "_macros": {
+    "": false,
+    "Follow": false,
+    "Spam TARGET": false,
+    "Eat Food": true,
+    "faster mana potting": false,
+    "Start": false,
+    "Auto Haste": false,
+    "Anti-Push": false,
+    "faster healing": false,
+    "Spam TT": false,
+    "Sio Friend": true,
+    "Cast Food": false,
+    "Spam Target": false,
+    "mana shield": false,
+    "Ultimate Healing potion": false,
+    "Stamina Refil (40h)": false,
+    "faster health potting": false,
+    "50% BOOST": false,
+    "Toggle Cave when xmana": false,
+    "Spam UE": false
+  },
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "dropper": {
+    "enabled": false,
+    "trashItems": [
+      {
+        "id": 283,
+        "count": 1
+      },
+      {
+        "id": 284,
+        "count": 1
+      },
+      {
+        "id": 285,
+        "count": 1
+      }
+    ],
+    "useItems": [
+      {
+        "id": 21203,
+        "count": 1
+      },
+      {
+        "id": 14758,
+        "count": 1
+      }
+    ],
+    "capItems": [
+      {
+        "id": 21175,
+        "count": 1
+      }
+    ]
+  },
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "cavebotSell": [
+    {
+      "id": 23544,
+      "count": 1
+    },
+    {
+      "id": 3081,
+      "count": 1
+    }
+  ],
+  "bestHit": 0,
+  "EquipperPanel": {
+    "enabled": false,
+    "bosses": [
+
+    ],
+    "rules": [
+
+    ]
+  },
+  "_configs": {
+    "targetbot_configs": {
+      "selected": "heh",
+      "enabled": false
+    },
+    "cavebot_configs": {
+      "selected": "gegegaga",
+      "enabled": false
+    }
+  },
+  "foodItems": [
+    {
+      "count": 1,
+      "id": 11946
+    },
+    {
+      "count": 1,
+      "id": 3585
+    },
+    {
+      "count": 1,
+      "id": 3592
+    },
+    {
+      "count": 1,
+      "id": 3600
+    },
+    {
+      "count": 1,
+      "id": 3601
+    },
+    {
+      "count": 1,
+      "id": 3607
+    }
+  ],
+  "pushmax": {
+    "pushMaxRuneId": 3188,
+    "mwallBlockId": 2128,
+    "pushDelay": 1060,
+    "enabled": false,
+    "pushMaxKey": "PageUp"
+  },
+  "manaShield": "utamo vita",
+  "autoHasteText": "utani hur",
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "bestHeal": 0,
+  "alarms": {
+    "privateMsg": [
+
+    ],
+    "customMessage": {
+      "value": ""
+    },
+    "flashClient": [
+
+    ],
+    "lowMana": {
+      "value": 20
+    },
+    "creatureDetected": [
+
+    ],
+    "damageTaken": [
+
+    ],
+    "playerAttack": [
+
+    ],
+    "ignoreFriends": [
+
+    ],
+    "defaultMsg": [
+
+    ],
+    "creatureName": {
+      "value": ""
+    },
+    "lowHealth": {
+      "value": 20
+    },
+    "playerDetected": [
+
+    ]
+  },
+  "moneyItems": [
+    {
+      "id": 3031,
+      "count": 1
+    },
+    {
+      "id": 3035,
+      "count": 1
+    }
+  ],
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "groupMembers": true,
+    "marks": false,
+    "highlight": false,
+    "blackList": [
+
+    ],
+    "friendList": [
+
+    ]
+  },
+  "mpItem": "268",
+  "renameContainers": {
+    "purse": true,
+    "enabled": false,
+    "height": 170,
+    "list": [
+      {
+        "items": [
+          3081,
+          3048
+        ],
+        "value": "Main Backpack",
+        "item": 9601,
+        "min": false,
+        "enabled": true
+      },
+      {
+        "items": [
+          3161,
+          3180
+        ],
+        "value": "Runes",
+        "item": 2866,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+          3031,
+          3035,
+          3043
+        ],
+        "value": "Money",
+        "item": 2871,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+
+        ],
+        "value": "Purse",
+        "item": 23396,
+        "min": true,
+        "enabled": true
+      }
+    ]
+  },
+  "healFriend": "Teatrzyk Ek",
+  "followLeader": "Nick Gracza"
+}

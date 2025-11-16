@@ -1,0 +1,862 @@
+{
+  "autohastespell": "utani hur",
+  "belowhp": "92",
+  "killSteal": {
+    "setting": true,
+    "enabled": false,
+    "hp": 60
+  },
+  "followLeader": "player name",
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "rarityFrames": true
+  },
+  "ExivaPlayer": "Player Name",
+  "antiparaspell": "utani gran hur",
+  "healspell": "exura med ico",
+  "advancedFriendHealer": {
+    "itemHeal": false,
+    "healEd": true,
+    "id": 3160,
+    "healRp": true,
+    "exuraSio": true,
+    "healMs": true,
+    "minMana": 15,
+    "exuraGranSio": false,
+    "healEk": true,
+    "customSpellName": "exura max sio",
+    "exuraMasRes": false,
+    "distance": 8,
+    "enabled": false,
+    "minFriendHp": 80,
+    "customSpell": false
+  },
+  "newHealer": {
+    "settings": [
+      {
+        "type": "HealItem",
+        "value": 238,
+        "text": "Mana Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Item Range: "
+      },
+      {
+        "type": "HealItem",
+        "value": 3160,
+        "text": "Health Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Mas Res Players: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Heal Friend at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Use Gran Sio at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Min Player HP%: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 20,
+        "text": "Min Player MP%: "
+      }
+    ],
+    "priorities": [
+      {
+        "normal": true,
+        "enabled": true,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": false,
+        "name": "Mana Item",
+        "mana": true
+      },
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": false,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "enabled": false,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": false,
+        "name": "Health Item"
+      }
+    ],
+    "customPlayers": [
+
+    ],
+    "groups": [
+
+    ],
+    "enabled": false,
+    "conditions": {
+      "druids": true,
+      "knights": true,
+      "friends": true,
+      "botserver": false,
+      "paladins": true,
+      "sorcerers": true,
+      "party": true,
+      "guild": true
+    },
+    "vocations": [
+
+    ]
+  },
+  "autoTradeMessage": "",
+  "uespell": "EXEVO GRAN MAS FRIGO",
+  "BotServerChannel": "DEJOWNIAAA",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "attackItemEnabled": false,
+    "onShootEnabled": false,
+    "item": 3155,
+    "serverLeaderTarget": false,
+    "onCastEnabled": false,
+    "commandsEnabled": true,
+    "attack": "",
+    "onSayEnabled": false,
+    "sayLeader": "",
+    "spell": "",
+    "shootLeader": "",
+    "attackItemToggle": false,
+    "followLeaderEnabled": false,
+    "serverEnabled": false,
+    "sayPhrase": "",
+    "serverTriggers": true,
+    "serverLeader": "",
+    "enabled": false,
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "rope": 3003,
+    "bless": true,
+    "pathfinding": true,
+    "machete": 3308,
+    "separatePm": false,
+    "highlightTarget": true,
+    "gotoMaxDistance": 50,
+    "holdWgHot": "*",
+    "holdMwall": true,
+    "checkPlayer": false,
+    "looting": 10,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "/",
+    "nextBackpack": true,
+    "shovel": 9596,
+    "lootDelay": 1,
+    "title": true,
+    "autoOpenDoors": true,
+    "stake": false,
+    "scythe": 9596,
+    "oberon": true,
+    "huntRoutes": 300,
+    "antiKick": true,
+    "talkDelay": 900,
+    "reachable": true,
+    "killUnder": 1,
+    "reUse": false,
+    "height": 360,
+    "timers": true
+  },
+  "_macros": {
+    "": true,
+    "Follow Change": false,
+    "Rainbow Outfit": false,
+    "Recharge Werewolf Amulet": false,
+    "AntiRS & Msg": true,
+    "Pot": false,
+    "expboost": false,
+    "Auto Haste": true,
+    "Hold Target": false,
+    "MR": false,
+    "MANA FRIEND": false,
+    "Auto Manashield": false,
+    "FWB": false,
+    "Cast Food": false,
+    "mwall step": false,
+    "PARAL BLACH": false,
+    "Anty Paral": false,
+    "CAVE OFF IF LOW CC": false,
+    "FairyColors": false,
+    "task level": false,
+    "Healing Spell": false,
+    "XLOG 8PPLS": false,
+    "Pot1": true,
+    "Antipush": false,
+    "sayutanavid": false,
+    "Follow": false,
+    "Lure+5monsters,Off,if0": false,
+    "Keep SSA&Might": false,
+    "bless": false,
+    "Eat Food": true,
+    "mwall on target": false,
+    "Fast attack": false,
+    "JOHN PAUL SECOND": true,
+    "Depot Withdraw": false,
+    "sayue": false,
+    "task maxpoints": false,
+    "Send message on trade": false,
+    "RainbowOutfit": false,
+    "relog after death": true,
+    "Energy RING": false,
+    "Bug Map": false,
+    "Dance": false,
+    "Sio Friend": true,
+    "Outfiter": false,
+    "Firewalk Enchanter": false,
+    "RandomOutfit": false,
+    "Mana Pot": false,
+    "multi target spell": true,
+    "Anti Push": false,
+    "CaveBot start/stop": false,
+    "ON/OFF": false,
+    "POTOWANIE KOGOS": false,
+    "Exchange money": true,
+    "PvE Speller": false,
+    "SOFTY": false,
+    "STAMINA DOLL": false
+  },
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "dropper": {
+    "enabled": true,
+    "trashItems": [
+      {
+        "id": 8012,
+        "count": 1
+      }
+    ],
+    "useItems": [
+      {
+        "count": 1,
+        "id": 21203
+      },
+      {
+        "count": 1,
+        "id": 14758
+      }
+    ],
+    "capItems": [
+      {
+        "id": 22085,
+        "count": 1
+      },
+      {
+        "id": 22087,
+        "count": 1
+      },
+      {
+        "id": 3318,
+        "count": 1
+      },
+      {
+        "id": 7413,
+        "count": 1
+      },
+      {
+        "id": 3281,
+        "count": 1
+      },
+      {
+        "id": 238,
+        "count": 100
+      }
+    ]
+  },
+  "quiverManager": {
+    "arrows": false,
+    "boltsId": 35849,
+    "arrowsId": 35848,
+    "bolts": false
+  },
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "cavebotSell": [
+    {
+      "id": 9660,
+      "count": 0
+    },
+    {
+      "id": 16131,
+      "count": 8
+    },
+    {
+      "id": 9636,
+      "count": 5
+    },
+    {
+      "id": 3051,
+      "count": 1
+    },
+    {
+      "id": 6499,
+      "count": 100
+    },
+    {
+      "id": 5906,
+      "count": 0
+    }
+  ],
+  "bestHit": 2180,
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "EquipperPanel": {
+    "enabled": true,
+    "bosses": [
+
+    ],
+    "rules": [
+      {
+        "mainCondition": 4,
+        "mainValue": 49,
+        "relation": "and",
+        "data": [
+          10385,
+          13994,
+          10387,
+          3552,
+          0,
+          22866,
+          35562,
+          3051,
+          0
+        ],
+        "visible": true,
+        "optValue": 37,
+        "enabled": true,
+        "name": "erer",
+        "optionalCondition": 7
+      },
+      {
+        "mainCondition": 1,
+        "optionalCondition": 2,
+        "relation": "-",
+        "visible": true,
+        "enabled": false,
+        "name": "ssy mr",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          3081,
+          0,
+          0,
+          3048,
+          0
+        ]
+      },
+      {
+        "relation": "-",
+        "mainCondition": 4,
+        "optionalCondition": 5,
+        "mainValue": 90,
+        "visible": true,
+        "enabled": false,
+        "name": "death ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6299,
+          0
+        ]
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3048,
+          0
+        ],
+        "mainCondition": 6,
+        "optionalCondition": 7,
+        "visible": true,
+        "mainValue": 80,
+        "enabled": false,
+        "name": "might ring",
+        "relation": "-"
+      },
+      {
+        "relation": "-",
+        "mainCondition": 7,
+        "optionalCondition": 8,
+        "mainValue": 90,
+        "visible": true,
+        "enabled": false,
+        "name": "time ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3053,
+          0
+        ]
+      },
+      {
+        "mainCondition": 1,
+        "optionalCondition": 2,
+        "relation": "-",
+        "visible": true,
+        "enabled": true,
+        "name": "set",
+        "data": [
+          10385,
+          13994,
+          10387,
+          10323,
+          0,
+          22866,
+          35562,
+          25698,
+          0
+        ]
+      }
+    ]
+  },
+  "pushmax": {
+    "pushMaxRuneId": 3192,
+    "mwallBlockId": 2129,
+    "pushDelay": 2100,
+    "enabled": false,
+    "pushMaxKey": "F2"
+  },
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "_icons": {
+    "Utito": {
+      "y": 0.55716004813478,
+      "x": 0.86388059701493,
+      "enabled": false
+    },
+    "Dash": {
+      "y": 0.01468788249694,
+      "x": 0.99462686567164,
+      "enabled": false
+    },
+    "GMP": {
+      "y": 0.26163522012579,
+      "x": 0.9851150202977,
+      "enabled": false
+    },
+    "SSA": {
+      "y": 0.49056603773585,
+      "x": 0.98782138024357,
+      "enabled": false
+    },
+    "Bug Map": {
+      "y": 0.01021711366539,
+      "x": 0.99761194029851,
+      "enabled": false
+    },
+    "UE": {
+      "y": 0.16475095785441,
+      "x": 0.88477611940299,
+      "enabled": false
+    },
+    "AMULET RECHARGE": {
+      "y": 0.049056603773585,
+      "x": 0,
+      "enabled": false
+    },
+    "PARALBLACH": {
+      "y": 0.57735849056604,
+      "x": 0.98173207036536,
+      "enabled": false
+    },
+    "ZBIERACZKA": {
+      "y": 0.34591194968553,
+      "x": 0.97699594046008,
+      "enabled": false
+    },
+    "DEATH RELOG": {
+      "y": 0.046540880503145,
+      "x": 0.035859269282815,
+      "enabled": true
+    },
+    "ON/OFF": {
+      "y": 0.1937106918239,
+      "x": 0.98173207036536,
+      "enabled": false
+    },
+    "DRAKUCWEL": {
+      "y": 0.17879948914432,
+      "x": 0.86985074626866,
+      "enabled": false
+    },
+    "START/STOP": {
+      "y": 0.15789473684211,
+      "x": 0.89671641791045,
+      "enabled": false
+    },
+    "MR": {
+      "y": 0.43270440251572,
+      "x": 0.9871447902571,
+      "enabled": false
+    },
+    "Keep SSA/Might": {
+      "y": 0.28505214368482,
+      "x": 0.9289552238806,
+      "enabled": false
+    },
+    "UTAMO": {
+      "y": 0.040251572327044,
+      "x": 0.077131258457375,
+      "enabled": false
+    }
+  },
+  "ingame_hotkeys": "",
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "groupMembers": true,
+    "marks": false,
+    "highlight": false,
+    "blackList": [
+
+    ],
+    "friendList": [
+      "Dey",
+      "Parkowy",
+      "Anzo International",
+      "Yededaya Sawyer",
+      "Gnojownica",
+      "Bog Gry",
+      "Zejadz Mnie",
+      "Natalie Wayne",
+      "Dxx",
+      "Paralotniarz",
+      "Jaggmar",
+      "Przyszykuj Kadzidlo",
+      "Fuhgeddaboudlt",
+      "Draku Pvp",
+      "Opera",
+      "Zajedz Mnie",
+      "Exxeexxexxeexxeexxee",
+      "KOMOSIAK",
+      "Ten Ms Was Zarucha",
+      "Npc Gameplay",
+      "Waldeymar Kasti",
+      "B",
+      "Poatan'ed",
+      "Demlox",
+      "Montello",
+      "HUSZCZA TIBIAGOD",
+      "Lagertha",
+      "Moon",
+      "Buszek",
+      "Humanoid",
+      "Exori San",
+      "Bagienny",
+      "MEDICO",
+      "RUSKI",
+      "Necro",
+      "Fezs Ywis",
+      "Fuhgeddaboudit"
+    ]
+  },
+  "moneyItems": [
+    {
+      "id": 3031,
+      "count": 1
+    },
+    {
+      "id": 3035,
+      "count": 1
+    }
+  ],
+  "autofollow": {
+    "player": "Rybak"
+  },
+  "manapot": "237",
+  "bestHeal": 8510,
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 2,
+    "taskName": ""
+  },
+  "alarms": {
+    "privateMsg": {
+      "enabled": true
+    },
+    "flashClient": [
+
+    ],
+    "creatureDetected": [
+
+    ],
+    "playerDetectedLogout": false,
+    "playerAttack": {
+      "enabled": false
+    },
+    "manaBelow": false,
+    "warnBoss": false,
+    "customMessage": {
+      "value": "",
+      "enabled": false
+    },
+    "creatureName": {
+      "value": ""
+    },
+    "manaValue": 50,
+    "lowMana": {
+      "enabled": false,
+      "value": 100
+    },
+    "privateMessage": false,
+    "damageTaken": [
+
+    ],
+    "healthValue": 40,
+    "playerDetected": {
+      "enabled": true
+    },
+    "ignoreFriends": {
+      "enabled": true
+    },
+    "defaultMsg": [
+
+    ],
+    "messageText": "",
+    "bossName": "[B]",
+    "enabled": false,
+    "lowHealth": {
+      "enabled": true,
+      "value": 20
+    },
+    "healthBelow": false
+  },
+  "belowmana": "95",
+  "foodItems": [
+    {
+      "count": 1,
+      "id": 3582
+    },
+    {
+      "count": 1,
+      "id": 3577
+    },
+    {
+      "count": 1,
+      "id": 3607
+    },
+    {
+      "count": 1,
+      "id": 3585
+    },
+    {
+      "count": 1,
+      "id": 3592
+    },
+    {
+      "count": 1,
+      "id": 3600
+    },
+    {
+      "count": 1,
+      "id": 3601
+    },
+    {
+      "count": 1,
+      "id": 3583
+    },
+    {
+      "count": 1,
+      "id": 3732
+    },
+    {
+      "count": 1,
+      "id": 6526
+    },
+    {
+      "count": 1,
+      "id": 3725
+    }
+  ],
+  "renameContainers": {
+    "sort": true,
+    "forceOpen": true,
+    "list": [
+      {
+        "items": [
+          {
+            "count": 39,
+            "id": 23374
+          },
+          {
+            "count": 52,
+            "id": 7642
+          }
+        ],
+        "value": "SUPPLY",
+        "enabled": true,
+        "min": false,
+        "item": 21411
+      },
+      {
+        "items": [
+          {
+            "id": 35901,
+            "count": 100
+          }
+        ],
+        "value": "QUIVER",
+        "enabled": true,
+        "min": false,
+        "item": 35562
+      },
+      {
+        "items": [
+
+        ],
+        "value": "LOOT",
+        "enabled": true,
+        "min": false,
+        "item": 23721
+      },
+      {
+        "items": [
+
+        ],
+        "value": "MAIN",
+        "enabled": true,
+        "min": false,
+        "item": 2854
+      },
+      {
+        "items": [
+          {
+            "count": 100,
+            "id": 3161
+          }
+        ],
+        "value": "AVA",
+        "enabled": true,
+        "min": false,
+        "item": 2866
+      },
+      {
+        "items": [
+
+        ],
+        "value": "PIERWSZYNASTRZALY",
+        "enabled": true,
+        "min": false,
+        "item": 9602
+      }
+    ],
+    "purse": true,
+    "enabled": true,
+    "height": 170,
+    "lootBag": true
+  },
+  "jewelleryEquipper": {
+    "ringMin": 30,
+    "ammyMin": 30,
+    "safe": false,
+    "valueAmmy": false,
+    "ammyId": 3081,
+    "ringMax": 80,
+    "valueRing": false,
+    "ringId": 3048,
+    "ammySwitch": true,
+    "safeMin": 30,
+    "ringValue": "HP",
+    "ringSwitch": true,
+    "ammyMax": 80,
+    "ammyValue": "HP"
+  },
+  "_configs": {
+    "targetbot_configs": {
+      "selected": "IXODUS_CAT_WORKERS",
+      "enabled": true
+    },
+    "cavebot_configs": {
+      "selected": "IXODUS_CAT_WORKER",
+      "enabled": true
+    }
+  }
+}

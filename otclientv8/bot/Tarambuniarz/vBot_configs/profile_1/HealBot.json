@@ -1,0 +1,197 @@
+{
+  "ConditionPanel": {
+    "cureBurn": false,
+    "curseCost": 80,
+    "electrifyCost": 22,
+    "ignoreInPz": false,
+    "bleedCost": 45,
+    "cureCurse": false,
+    "holdHaste": true,
+    "curePosion": false,
+    "hasteSpell": "utani gran hur",
+    "uturaType": "",
+    "burnCost": 30,
+    "cureBleed": false,
+    "holdUtura": false,
+    "paralyseSpell": "utani gran hur",
+    "hasteCost": 100,
+    "cureParalyse": true,
+    "poisonCost": 20,
+    "utamoCost": 1,
+    "enabled": true,
+    "uturaCost": 100,
+    "cureElectrify": false,
+    "holdUtamo": true,
+    "paralyseCost": 40,
+    "utanaCost": 440,
+    "holdUtana": false,
+    "stopHaste": false
+  },
+  "currentHealBotProfile": 1,
+  "healbot": [
+    {
+      "MessageDelay": false,
+      "Visible": false,
+      "Interval": false,
+      "Delay": false,
+      "Conditions": false,
+      "Cooldown": false,
+      "spellTable": [
+        {
+          "enabled": false,
+          "value": 98,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura vita",
+          "index": 1,
+          "cost": -1
+        },
+        {
+          "enabled": false,
+          "index": 2,
+          "origin": "HP%",
+          "spell": "exura vita",
+          "sign": "<",
+          "value": 75,
+          "cost": 1
+        },
+        {
+          "enabled": false,
+          "value": 80,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura gran mas res",
+          "index": 3,
+          "cost": 10
+        },
+        {
+          "enabled": false,
+          "index": 4,
+          "origin": "HP%",
+          "spell": "exura sio \"medson from arkadia",
+          "sign": "<",
+          "value": 70,
+          "cost": 140
+        },
+        {
+          "enabled": true,
+          "value": 70,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura vita",
+          "index": 6,
+          "cost": 70
+        },
+        {
+          "enabled": true,
+          "value": 93,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura gran",
+          "index": 5,
+          "cost": 60
+        }
+      ],
+      "enabled": false,
+      "name": "Profile #1",
+      "itemTable": [
+        {
+          "sign": "<",
+          "value": 97,
+          "index": 1,
+          "item": 3181,
+          "origin": "MP%",
+          "enabled": false
+        },
+        {
+          "sign": "<",
+          "value": 80,
+          "index": 2,
+          "item": 238,
+          "origin": "MP%",
+          "enabled": false
+        },
+        {
+          "enabled": false,
+          "origin": "MP%",
+          "value": 88,
+          "item": 238,
+          "index": 3,
+          "sign": "<"
+        },
+        {
+          "enabled": true,
+          "origin": "MP%",
+          "value": 99,
+          "item": 238,
+          "index": 4,
+          "sign": "<"
+        }
+      ]
+    },
+    {
+      "MessageDelay": false,
+      "Visible": true,
+      "Interval": true,
+      "Delay": true,
+      "Conditions": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #2",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "MessageDelay": false,
+      "Visible": true,
+      "Interval": true,
+      "Delay": true,
+      "Conditions": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #3",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "MessageDelay": false,
+      "Visible": true,
+      "Interval": true,
+      "Delay": true,
+      "Conditions": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #4",
+      "itemTable": [
+
+      ]
+    },
+    {
+      "MessageDelay": false,
+      "Visible": true,
+      "Interval": true,
+      "Delay": true,
+      "Conditions": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #5",
+      "itemTable": [
+
+      ]
+    }
+  ]
+}

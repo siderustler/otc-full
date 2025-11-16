@@ -1,0 +1,36 @@
+hotkeys:
+  F4:
+    autoSend: false
+  F9:
+    autoSend: false
+  Shift+F2:
+    autoSend: false
+  Shift+F1:
+    autoSend: false
+  F5:
+    autoSend: true
+    value: utani hur
+  F11:
+    autoSend: false
+  F1:
+    useType: 1
+    autoSend: false
+    itemId: 239
+  F6:
+    autoSend: false
+  F3:
+    autoSend: false
+  F2:
+    autoSend: false
+  F7:
+    autoSend: false
+  F10:
+    autoSend: false
+  F12:
+    autoSend: false
+  F8:
+    autoSend: false
+  Shift+F3:
+    autoSend: false
+  Shift+F4:
+    autoSend: false

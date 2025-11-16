@@ -1,0 +1,107 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "itemId": 0,
+          "mana": 1,
+          "minHp": 0,
+          "monsters": true,
+          "category": 5,
+          "spell": "ghost shoot",
+          "count": 1,
+          "creatures": "*",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[Small Area] 1+ Any Creatures: ghost shoot, absolute (0%-100%)",
+          "pattern": 3
+        }
+      ],
+      "Visible": false,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": false,
+      "PvpSafe": false,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": false,
+      "Rotate": false,
+      "enabled": true,
+      "name": "Profile #1",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #2",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #3",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #4",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #5",
+      "BlackListSafe": false
+    }
+  ],
+  "currentBotProfile": 1
+}

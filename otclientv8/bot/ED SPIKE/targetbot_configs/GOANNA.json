@@ -1,0 +1,84 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 21411
+      },
+      {
+        "count": 1,
+        "id": 8860
+      },
+      {
+        "count": 1,
+        "id": 2871
+      },
+      {
+        "count": 1,
+        "id": 5949
+      },
+      {
+        "count": 1,
+        "id": 2866
+      },
+      {
+        "count": 1,
+        "id": 2867
+      },
+      {
+        "count": 1,
+        "id": 2865
+      },
+      {
+        "count": 1,
+        "id": 7342
+      },
+      {
+        "count": 1,
+        "id": 9602
+      },
+      {
+        "count": 1,
+        "id": 2869
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 457,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 2,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 30,
+      "regex": "^enslaved dwarf$",
+      "chase": true,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 2,
+      "lure": false,
+      "dynamicLureDelay": false,
+      "dynamicLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 3,
+      "anchor": false,
+      "closeLureAmount": 5,
+      "rePosition": false,
+      "name": "Enslaved dwarf",
+      "rpSafe": false
+    }
+  ]
+}

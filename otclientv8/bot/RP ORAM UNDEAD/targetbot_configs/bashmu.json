@@ -1,0 +1,115 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3065
+      },
+      {
+        "count": 1,
+        "id": 10438
+      },
+      {
+        "count": 1,
+        "id": 23542
+      },
+      {
+        "count": 1,
+        "id": 23544
+      },
+      {
+        "count": 24,
+        "id": 5944
+      },
+      {
+        "count": 99,
+        "id": 21197
+      },
+      {
+        "count": 29,
+        "id": 16135
+      },
+      {
+        "count": 69,
+        "id": 21182
+      },
+      {
+        "count": 7,
+        "id": 3034
+      },
+      {
+        "count": 94,
+        "id": 3202
+      },
+      {
+        "count": 1,
+        "id": 8072
+      },
+      {
+        "count": 21,
+        "id": 3130
+      },
+      {
+        "count": 33,
+        "id": 5021
+      },
+      {
+        "count": 1,
+        "id": 814
+      },
+      {
+        "count": 36,
+        "id": 6499
+      },
+      {
+        "count": 1,
+        "id": 3081
+      },
+      {
+        "count": 1,
+        "id": 5799
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 510,
+      "lureMin": 3,
+      "maxDistance": 10,
+      "anchorRange": 2,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 7,
+      "lureMax": 7,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Fury, Lost soul, dark torturer, betrayed wraith",
+      "keepDistance": false,
+      "keepDistanceRange": 2,
+      "danger": 1,
+      "dynamicLureDelay": true,
+      "delayFrom": 4,
+      "closeLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 4,
+      "rePosition": true,
+      "dynamicLure": true,
+      "regex": "^fury$|^lost soul$|^dark torturer$|^betrayed wraith$"
+    }
+  ]
+}

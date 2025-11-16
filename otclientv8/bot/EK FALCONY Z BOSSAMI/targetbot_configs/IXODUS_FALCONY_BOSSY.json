@@ -1,0 +1,153 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3033
+      },
+      {
+        "count": 1,
+        "id": 9057
+      },
+      {
+        "count": 1,
+        "id": 3030
+      },
+      {
+        "count": 1,
+        "id": 3028
+      },
+      {
+        "count": 1,
+        "id": 3032
+      },
+      {
+        "count": 1,
+        "id": 3039
+      },
+      {
+        "count": 1,
+        "id": 3038
+      },
+      {
+        "count": 1,
+        "id": 3036
+      },
+      {
+        "count": 1,
+        "id": 281
+      },
+      {
+        "count": 1,
+        "id": 28823
+      },
+      {
+        "count": 1,
+        "id": 3414
+      },
+      {
+        "count": 1,
+        "id": 3360
+      },
+      {
+        "count": 1,
+        "id": 7452
+      },
+      {
+        "count": 1,
+        "id": 7413
+      },
+      {
+        "count": 1,
+        "id": 3370
+      },
+      {
+        "count": 1,
+        "id": 28822
+      },
+      {
+        "count": 1,
+        "id": 3342
+      },
+      {
+        "count": 1,
+        "id": 3019
+      },
+      {
+        "count": 1,
+        "id": 3340
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 50,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 140,
+      "lureMin": 2,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 6,
+      "rpSafe": false,
+      "chase": true,
+      "priority": 1,
+      "name": "falcon knight, falcon paladin",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "danger": 1,
+      "dynamicLureDelay": true,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^falcon knight$|^falcon paladin$"
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": true,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "regex": "^grand canon dominus$|^preceptor lazare$|^grand chaplain gaunder$|^grand commander soeren$",
+      "chase": true,
+      "priority": 10,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 10,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": false,
+      "dynamicLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 2,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Grand Canon Dominus, Preceptor Lazare, Grand Chaplain Gaunder, Grand Commander Soeren",
+      "rpSafe": false
+    }
+  ]
+}

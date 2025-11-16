@@ -1,0 +1,52 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 2,
+        "id": 35574
+      },
+      {
+        "count": 5,
+        "id": 35572
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 450,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 2,
+      "avoidAttacks": false,
+      "rePositionAmount": 0,
+      "lureMax": 30,
+      "regex": "^pirat cutthroat$|^pirat scoundrel$|^pirat mate$|^pirat bombardier$",
+      "chase": false,
+      "priority": 10,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 10,
+      "keepDistanceRange": 2,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": true,
+      "diamondArrows": false,
+      "delayFrom": 3,
+      "anchor": true,
+      "closeLureAmount": 2,
+      "rePosition": true,
+      "name": "Pirat Cutthroat, Pirat Scoundrel, Pirat Mate, Pirat Bombardier",
+      "rpSafe": false
+    }
+  ]
+}

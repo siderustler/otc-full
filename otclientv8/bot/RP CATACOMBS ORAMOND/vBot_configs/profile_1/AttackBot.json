@@ -1,0 +1,125 @@
+{
+  "AttackBot": [
+    {
+      "attackTable": [
+        {
+          "itemId": 0,
+          "mana": 1,
+          "minHp": 0,
+          "monsters": true,
+          "category": 5,
+          "spell": "exevo mas san",
+          "count": 1,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 4,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "orMore": true,
+          "description": "[Small Area] 1+ Any Creatures: exevo mas san, absolute (0%-100%)",
+          "pattern": 3
+        },
+        {
+          "description": "[Ball] 1+ Any Creatures: rune 3161, area (0%-100%)",
+          "mana": 1,
+          "orMore": true,
+          "monsters": true,
+          "category": 2,
+          "spell": "spell name",
+          "pattern": 3,
+          "creatures": "monster names",
+          "tooltip": false,
+          "patternCategory": 2,
+          "enabled": true,
+          "cooldown": 1,
+          "maxHp": 100,
+          "count": 1,
+          "minHp": 0,
+          "itemId": 3161
+        }
+      ],
+      "Visible": false,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": false,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": true,
+      "enabled": true,
+      "name": "Profile #1",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #2",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #3",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #4",
+      "BlackListSafe": false
+    },
+    {
+      "attackTable": [
+
+      ],
+      "Visible": true,
+      "Kills": false,
+      "KillsAmount": 1,
+      "ignoreMana": true,
+      "PvpSafe": true,
+      "AntiRsRange": 5,
+      "pvpMode": false,
+      "Cooldown": true,
+      "Rotate": false,
+      "enabled": false,
+      "name": "Profile #5",
+      "BlackListSafe": false
+    }
+  ],
+  "currentBotProfile": 1
+}

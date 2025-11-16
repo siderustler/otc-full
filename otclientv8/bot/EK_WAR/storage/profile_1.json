@@ -1,0 +1,718 @@
+{
+  "BotServerChannel": "4813375462216",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "onShootEnabled": false,
+    "item": 3155,
+    "followLeaderEnabled": false,
+    "serverTriggers": true,
+    "serverEnabled": false,
+    "attack": "",
+    "onSayEnabled": false,
+    "sayLeader": "",
+    "spell": "",
+    "shootLeader": "",
+    "attackItemToggle": false,
+    "serverLeaderTarget": false,
+    "commandsEnabled": true,
+    "sayPhrase": "",
+    "onCastEnabled": false,
+    "serverLeader": "",
+    "enabled": false,
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "rope": 9596,
+    "pathfinding": true,
+    "machete": 9596,
+    "bless": true,
+    "separatePm": false,
+    "gotoMaxDistance": 30,
+    "highlightTarget": true,
+    "holdMwall": true,
+    "checkPlayer": true,
+    "looting": 40,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "F5",
+    "stake": false,
+    "shovel": 9596,
+    "reachable": false,
+    "scythe": 9596,
+    "autoOpenDoors": true,
+    "holdWgHot": "F6",
+    "nextBackpack": true,
+    "title": true,
+    "huntRoutes": 50,
+    "antiKick": true,
+    "talkDelay": 1000,
+    "oberon": true,
+    "lootDelay": 200,
+    "reUse": false,
+    "killUnder": 1,
+    "timers": true
+  },
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "ingame_hotkeys": "local holdMwallHotkey = 'CapsLock'\nlocal holdMwallText = 'Hold MWall'\nlocal holdMwallTextCol = 'yellow'\nlocal holdMwallTiles = {}\n\nonKeyPress(function(keys)\n  if keys == holdMwallHotkey then\n    local tile = getTileUnderCursor()\n    local currTile = table.find(holdMwallTiles, tile)\n    if currTile then\n      holdMwallTiles[currTile]:setText('')\n      table.remove(holdMwallTiles, currTile)\n    else\n      table.insert(holdMwallTiles, tile)\n      holdMwallTiles[#holdMwallTiles]:setText(holdMwallText, holdMwallTextCol)\n    end\n  end\nend)\n\nmacro(10, function()\n  for _, holdMwallTile in pairs(holdMwallTiles) do\n    local isWall = holdMwallTile:getTopThing():getId() == 2129 or holdMwallTile:getTopThing():getId() == 2130\n    local canShootWall = getDistanceBetween(holdMwallTile:getPosition(), player:getPosition())\n    if isWall and canShootWall and holdMwallTile:isWalkable() then\n      useWith(3180, holdMwallTile:getTopUseThing())\n      return\n    end\n  end\nend)\n\nlocal healHotkey = 'F1'\nlocal healSpell = \"exana mort\"\nlocal healPotID = 7643\n\ng_keyboard.bindKeyDown(healHotkey, function()\n  cast(healSpell)\n  useWith(healPotID, player)\nend)\n\n\n--\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--          [[[[[[[[[[ MAX PUSH ]]]]]]]]]]\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--\n\n\nlocal pushMaxState = {\n  tileTo = nil,\n  target = nil,\n  posFrom = nil,\n  state = 0,\n  lastPush = 0,\n}\n\nlocal pushMaxCfg = {\n  pushDelay = 690,\n  mwPushDelay = 400,\n  fieldId = 3164,\n}\n\nfunction resetPushMaxState()\n  if pushMaxState.posFrom then \n    g_map.getTile(pushMaxState.posFrom):setText('')\n  end\n  if pushMaxState.tileTo then \n    pushMaxState.tileTo:setText('') \n  end\n  pushMaxState.tileTo = nil\n  pushMaxState.target = nil\n  pushMaxState.state = 0\nend\n\nfunction setState(tile)\n  if pushMaxState.state == 0 then\n    local creature = tile:getCreatures() and tile:getCreatures()[1]\n    if creature and creature:isPlayer() then\n      pushMaxState.target = creature\n      -- used only to clear ui\n      pushMaxState.posFrom = creature:getPosition()\n      tile:setText('FROM')\n    else\n      tile:setText('NOT PLAYER')\n      return\n    end\n  end\n  if pushMaxState.state == 1 then\n    pushMaxState.tileTo = tile\n    tile:setText('HERE')\n  end\n  pushMaxState.state = pushMaxState.state + 1\n    print(\"state is \" .. pushMaxState.state)\nend\n\n-- state manager\nonKeyPress(function(keys)\n  if keys:lower() == \"`\" then\n    if pushMaxState.state > 1 then\n      resetPushMaxState()\n      return\n    end\n    local tile = getTileUnderCursor(mousePos)\n    setState(tile)\n  end\nend)\n\nonCreaturePositionChange(function(creature,newPos,oldPos)\n  if creature == player or creature == pushMaxState.target then \n    resetPushMaxState()\n    vBot.isUsing = false\n  end\nend)\n\n\nlocal function push(target,destPos, withField)\n  pushMaxState.lastPush = withField and now + math.max(2*pushMaxCfg.pushDelay, 2*pushMaxCfg.mwPushDelay)  or now + math.max(pushMaxCfg.pushDelay, pushMaxCfg.mwPushDelay)\n  g_game.move(target, destPos)\nend\n\nmacro(1, function()\n  if pushMaxState.state < 2 then return end\n  if now < pushMaxState.lastPush then return end\n  local isTargetPushable = getDistanceBetween(pushMaxState.target:getPosition(), player:getPosition()) == 1\n  if not isTargetPushable then return end\n  local isDestTileMwalled = not pushMaxState.tileTo:isWalkable() and pushMaxState.tileTo:getTopUseThing():getId() == 2129\n  local shouldUseRune = not pushMaxState.target:getTile():getTopUseThing():isNotMoveable()\n  vBot.isUsing = true\n  if isDestTileMwalled then\n    local pushDelay = shouldUseRune and 2*pushMaxCfg.mwPushDelay or pushMaxCfg.mwPushDelay\n    if pushMaxState.tileTo:getTimer() > pushDelay then \n      return \n    end\n    if shouldUseRune then\n      print(\"pushing... need to use rune \")\n      useWith(pushMaxCfg.fieldId, pushMaxState.target)\n      push(pushMaxState.target,pushMaxState.tileTo:getPosition(),true)\n      return\n    end\n    push(pushMaxState.target, pushMaxState.tileTo:getPosition())\n    return\n  end\n\n  if shouldUseRune then\n        print(\"need to use rune... \")\n    useWith(pushMaxCfg.fieldId, pushMaxState.target)\n    push(pushMaxState.target,pushMaxState.tileTo:getPosition(),true)\n    return\n  end\n      push(pushMaxState.target,pushMaxState.tileTo:getPosition())\n  vBot.isUsing = false\nend)\n\n\n\n\n\nlocal friendManaState = false\nlocal friendName = \"Tarambuniarz\"\n\nonScreen= macro(100,\"friend OS\", function()\n    local spectators = getSpectators(pos(), false)\n    for i, spec in pairs(spectators) do\n        if spec:getName() == friendName then\n          if getDistanceBetween(pos(), spec:getPosition()) < 5 and friendManaState then\n            return CaveBot.setOn()\n          end\n        end\n    end\n    return CaveBot.setOff()\nend)\n\n\n\n\n\nonTalk(function(name, level, mode, text, channelId, pos)\n    if name ~= \"Tarambuniarz\" then return end\n    if text == \"start\" then\n        friendManaState = true\n        CaveBot.setOn()\n    end\n    if text == \"stop\" then\n        friendManaState = false\n        CaveBot.setOff()\n    end\nend)\n\n\n\n",
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "trackedBoss": [
+
+    ],
+    "rarityFrames": true,
+    "outfits": {
+      "Block": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 128,
+        "auxType": 11427,
+        "addons": 0,
+        "head": 0
+      },
+      "Dracola": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 231,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Fury": {
+        "feet": 0,
+        "legs": 96,
+        "body": 77,
+        "type": 149,
+        "auxType": 0,
+        "addons": 3,
+        "head": 94
+      },
+      "Grim Reaper": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 300,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Dragon": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 34,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Massacre": {
+        "feet": 0,
+        "type": 244,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Stivicwelu": {
+        "feet": 114,
+        "legs": 0,
+        "auxType": 0,
+        "type": 955,
+        "addons": 3,
+        "body": 114,
+        "head": 114
+      },
+      "Apocalypse": {
+        "feet": 94,
+        "type": 384,
+        "addons": 0,
+        "legs": 0,
+        "body": 114,
+        "auxType": 0,
+        "head": 38
+      },
+      "Undertaker": {
+        "feet": 79,
+        "type": 947,
+        "addons": 0,
+        "legs": 79,
+        "body": 94,
+        "auxType": 0,
+        "head": 0
+      },
+      "Hellgorak": {
+        "feet": 81,
+        "type": 12,
+        "addons": 0,
+        "legs": 21,
+        "body": 96,
+        "auxType": 0,
+        "head": 19
+      },
+      "Destroyer": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 236,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Dark Torturer": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 234,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Demodras": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 204,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Nightmare": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 245,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Zugurosh": {
+        "feet": 91,
+        "type": 12,
+        "addons": 0,
+        "legs": 57,
+        "body": 35,
+        "auxType": 0,
+        "head": 2
+      },
+      "Hand of Cursed Fate": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 230,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Azerus": {
+        "feet": 81,
+        "type": 309,
+        "auxType": 0,
+        "legs": 21,
+        "addons": 0,
+        "body": 96,
+        "head": 19
+      },
+      "Warlock": {
+        "feet": 128,
+        "legs": 128,
+        "body": 71,
+        "type": 130,
+        "auxType": 0,
+        "addons": 1,
+        "head": 19
+      },
+      "Premium Hydra": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 395,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Rift Worm": {
+        "feet": 0,
+        "type": 295,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Rotworm": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 26,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Demon": {
+        "feet": 0,
+        "type": 35,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Annihilon": {
+        "feet": 96,
+        "type": 12,
+        "body": 104,
+        "legs": 96,
+        "auxType": 0,
+        "addons": 0,
+        "head": 19
+      },
+      "The Old Widow": {
+        "feet": 0,
+        "type": 208,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Premium Frost": {
+        "feet": 0,
+        "type": 533,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Cat": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 276,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Orshabaal": {
+        "feet": 0,
+        "type": 201,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Bones": {
+        "feet": 0,
+        "type": 231,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Gmzrobilwbambuko": {
+        "feet": 114,
+        "type": 130,
+        "addons": 0,
+        "legs": 57,
+        "body": 118,
+        "auxType": 0,
+        "head": 38
+      },
+      "Ferumbras": {
+        "feet": 0,
+        "type": 229,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Ushuriel": {
+        "feet": 112,
+        "type": 12,
+        "auxType": 0,
+        "legs": 19,
+        "addons": 0,
+        "body": 95,
+        "head": 0
+      },
+      "Juggernaut": {
+        "feet": 0,
+        "type": 244,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      }
+    }
+  },
+  "cavebotSell": [
+    {
+      "id": 23544,
+      "count": 1
+    },
+    {
+      "id": 3081,
+      "count": 1
+    }
+  ],
+  "bestHit": 0,
+  "EquipperPanel": {
+    "enabled": false,
+    "bosses": [
+
+    ],
+    "rules": [
+
+    ]
+  },
+  "bestHeal": 0,
+  "_configs": {
+    "targetbot_configs": {
+      "enabled": false
+    },
+    "cavebot_configs": {
+      "enabled": true
+    }
+  },
+  "checkVersion": 1763163150,
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "autoTradeMessage": "I'm using OTClientV8!",
+  "pushmax": {
+    "pushMaxRuneId": 3188,
+    "mwallBlockId": 2128,
+    "pushDelay": 1060,
+    "enabled": true,
+    "pushMaxKey": "PageUp"
+  },
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "_macros": {
+    "": false
+  },
+  "moneyItems": [
+    {
+      "id": 3031,
+      "count": 1
+    },
+    {
+      "id": 3035,
+      "count": 1
+    }
+  ],
+  "alarms": {
+    "privateMsg": [
+
+    ],
+    "customMessage": {
+      "value": ""
+    },
+    "flashClient": [
+
+    ],
+    "lowMana": {
+      "value": 20
+    },
+    "creatureDetected": [
+
+    ],
+    "damageTaken": [
+
+    ],
+    "playerAttack": [
+
+    ],
+    "ignoreFriends": [
+
+    ],
+    "defaultMsg": [
+
+    ],
+    "creatureName": {
+      "value": ""
+    },
+    "lowHealth": {
+      "value": 20
+    },
+    "playerDetected": [
+
+    ]
+  },
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "friendList": [
+
+    ],
+    "blackList": [
+
+    ],
+    "highlight": false,
+    "marks": false,
+    "groupMembers": true
+  },
+  "newHealer": {
+    "settings": [
+      {
+        "type": "HealItem",
+        "value": 268,
+        "text": "Mana Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 6,
+        "text": "Item Range: "
+      },
+      {
+        "type": "HealItem",
+        "value": 3160,
+        "text": "Health Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 2,
+        "text": "Mas Res Players: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Heal Friend at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Use Gran Sio at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Min Player HP%: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 50,
+        "text": "Min Player MP%: "
+      }
+    ],
+    "conditions": {
+      "sorcerers": false,
+      "knights": true,
+      "friends": false,
+      "botserver": false,
+      "paladins": true,
+      "party": true,
+      "druids": false,
+      "guild": false
+    },
+    "customPlayers": [
+
+    ],
+    "priorities": [
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": true,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "normal": true,
+        "enabled": true,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": true,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": true,
+        "name": "Health Item"
+      },
+      {
+        "enabled": true,
+        "name": "Mana Item",
+        "mana": true
+      }
+    ],
+    "enabled": false,
+    "groups": [
+
+    ],
+    "vocations": [
+
+    ]
+  },
+  "renameContainers": {
+    "purse": true,
+    "enabled": false,
+    "height": 170,
+    "list": [
+      {
+        "items": [
+          3081,
+          3048
+        ],
+        "value": "Main Backpack",
+        "item": 9601,
+        "min": false,
+        "enabled": true
+      },
+      {
+        "items": [
+          3161,
+          3180
+        ],
+        "value": "Runes",
+        "item": 2866,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+          3031,
+          3035,
+          3043
+        ],
+        "value": "Money",
+        "item": 2871,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+
+        ],
+        "value": "Purse",
+        "item": 23396,
+        "min": true,
+        "enabled": true
+      }
+    ]
+  },
+  "foodItems": [
+    {
+      "id": 3582,
+      "count": 1
+    },
+    {
+      "id": 3577,
+      "count": 1
+    },
+    {
+      "count": 1,
+      "id": 3607
+    },
+    {
+      "count": 1,
+      "id": 3585
+    },
+    {
+      "count": 1,
+      "id": 3592
+    },
+    {
+      "count": 1,
+      "id": 3600
+    },
+    {
+      "count": 1,
+      "id": 3601
+    }
+  ],
+  "dropper": {
+    "enabled": false,
+    "trashItems": [
+      {
+        "id": 283,
+        "count": 1
+      },
+      {
+        "id": 284,
+        "count": 1
+      },
+      {
+        "id": 285,
+        "count": 1
+      }
+    ],
+    "useItems": [
+      {
+        "id": 21203,
+        "count": 1
+      },
+      {
+        "id": 14758,
+        "count": 1
+      }
+    ],
+    "capItems": [
+      {
+        "id": 21175,
+        "count": 1
+      }
+    ]
+  }
+}

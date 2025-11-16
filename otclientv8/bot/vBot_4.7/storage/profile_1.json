@@ -1,0 +1,391 @@
+{
+  "BotServerChannel": "9028503086537",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "shootLeader": "",
+    "serverTriggers": true,
+    "serverLeaderTarget": false,
+    "commandsEnabled": true,
+    "serverEnabled": false,
+    "onSayEnabled": false,
+    "attack": "",
+    "enabled": false,
+    "spell": "",
+    "onShootEnabled": false,
+    "attackItemToggle": false,
+    "onCastEnabled": false,
+    "item": 3155,
+    "sayPhrase": "",
+    "followLeaderEnabled": false,
+    "serverLeader": "",
+    "sayLeader": "",
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "rope": 9596,
+    "pathfinding": true,
+    "machete": 9596,
+    "killUnder": 1,
+    "gotoMaxDistance": 30,
+    "timers": true,
+    "holdMwall": true,
+    "checkPlayer": true,
+    "separatePm": false,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "F5",
+    "reUse": false,
+    "shovel": 9596,
+    "reachable": false,
+    "huntRoutes": 50,
+    "autoOpenDoors": true,
+    "stake": false,
+    "scythe": 9596,
+    "title": true,
+    "oberon": true,
+    "antiKick": true,
+    "talkDelay": 1000,
+    "bless": true,
+    "nextBackpack": true,
+    "highlightTarget": true,
+    "holdWgHot": "F6",
+    "looting": 40
+  },
+  "foodItems": [
+    {
+      "id": 3582,
+      "count": 1
+    },
+    {
+      "id": 3577,
+      "count": 1
+    },
+    {
+      "count": 1,
+      "id": 3607
+    },
+    {
+      "count": 1,
+      "id": 3585
+    },
+    {
+      "count": 1,
+      "id": 3592
+    },
+    {
+      "count": 1,
+      "id": 3600
+    },
+    {
+      "count": 1,
+      "id": 3601
+    }
+  ],
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "dropper": {
+    "enabled": false,
+    "trashItems": [
+      {
+        "id": 283,
+        "count": 1
+      },
+      {
+        "id": 284,
+        "count": 1
+      },
+      {
+        "id": 285,
+        "count": 1
+      }
+    ],
+    "useItems": [
+      {
+        "id": 21203,
+        "count": 1
+      },
+      {
+        "id": 14758,
+        "count": 1
+      }
+    ],
+    "capItems": [
+      {
+        "id": 21175,
+        "count": 1
+      }
+    ]
+  },
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "rarityFrames": true
+  },
+  "bestHit": 0,
+  "EquipperPanel": {
+    "bosses": [
+
+    ],
+    "enabled": false,
+    "rules": [
+
+    ]
+  },
+  "_configs": {
+    "cavebot_configs": {
+      "enabled": false
+    },
+    "targetbot_configs": {
+      "enabled": false
+    }
+  },
+  "checkVersion": 1681318355,
+  "pushmax": {
+    "pushMaxRuneId": 3188,
+    "mwallBlockId": 2128,
+    "pushDelay": 1060,
+    "enabled": true,
+    "pushMaxKey": "PageUp"
+  },
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "renameContainers": {
+    "purse": true,
+    "enabled": false,
+    "height": 170,
+    "list": [
+      {
+        "items": [
+          3081,
+          3048
+        ],
+        "value": "Main Backpack",
+        "item": 9601,
+        "min": false,
+        "enabled": true
+      },
+      {
+        "items": [
+          3161,
+          3180
+        ],
+        "value": "Runes",
+        "item": 2866,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+          3031,
+          3035,
+          3043
+        ],
+        "value": "Money",
+        "item": 2871,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+
+        ],
+        "value": "Purse",
+        "item": 23396,
+        "min": true,
+        "enabled": true
+      }
+    ]
+  },
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "_macros": {
+    "": false
+  },
+  "alarms": {
+    "playerDetected": false,
+    "healthValue": 40,
+    "healthBelow": false,
+    "creatureDetected": false,
+    "playerDetectedLogout": false,
+    "playerAttack": false,
+    "manaBelow": false,
+    "ignoreFriends": true,
+    "bossName": "[B]",
+    "messageText": "",
+    "manaValue": 50,
+    "enabled": false,
+    "warnBoss": false,
+    "privateMessage": false
+  },
+  "moneyItems": [
+    {
+      "id": 3031,
+      "count": 1
+    },
+    {
+      "id": 3035,
+      "count": 1
+    }
+  ],
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "friendList": [
+
+    ],
+    "groupMembers": true,
+    "highlight": false,
+    "blackList": [
+
+    ],
+    "marks": false
+  },
+  "newHealer": {
+    "vocations": [
+
+    ],
+    "conditions": {
+      "sorcerers": false,
+      "knights": true,
+      "friends": false,
+      "botserver": false,
+      "paladins": true,
+      "party": true,
+      "druids": false,
+      "guild": false
+    },
+    "enabled": false,
+    "priorities": [
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": true,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "normal": true,
+        "enabled": true,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": true,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": true,
+        "name": "Health Item"
+      },
+      {
+        "enabled": true,
+        "name": "Mana Item",
+        "mana": true
+      }
+    ],
+    "customPlayers": [
+
+    ],
+    "groups": [
+
+    ],
+    "settings": [
+      {
+        "type": "HealItem",
+        "text": "Mana Item ",
+        "value": 268
+      },
+      {
+        "type": "HealScroll",
+        "text": "Item Range: ",
+        "value": 6
+      },
+      {
+        "type": "HealItem",
+        "text": "Health Item ",
+        "value": 3160
+      },
+      {
+        "type": "HealScroll",
+        "text": "Mas Res Players: ",
+        "value": 2
+      },
+      {
+        "type": "HealScroll",
+        "text": "Heal Friend at: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Use Gran Sio at: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Min Player HP%: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Min Player MP%: ",
+        "value": 50
+      }
+    ]
+  },
+  "autoTradeMessage": "I'm using OTClientV8!",
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "bestHeal": 0
+}

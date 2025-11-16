@@ -1,0 +1,45 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 100,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "regex": "^pizdryk$|^strong pizdryk$|^epic pizdryk$|^godly pizdryk$|^pizdryk strzelec$|^epic pizdryk strzelec$|^strong pizdryk strzelec$|^godly pizdryk strzelec$|^pizdryk szaman$|^epic pizdryk szaman$|^strong pizdryk szaman$|^godly pizdryk szaman$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 4,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Pizdryk, strong Pizdryk, epic Pizdryk, godly Pizdryk, Pizdryk Strzelec, epic Pizdryk Strzelec, strong Pizdryk Strzelec, godly Pizdryk Strzelec, Pizdryk Szaman, epic Pizdryk Szaman, strong Pizdryk Szaman, godly Pizdryk Szaman",
+      "rpSafe": false
+    }
+  ]
+}

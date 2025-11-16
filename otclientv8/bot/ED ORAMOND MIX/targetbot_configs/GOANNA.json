@@ -1,0 +1,84 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 21411
+      },
+      {
+        "count": 1,
+        "id": 8860
+      },
+      {
+        "count": 1,
+        "id": 2871
+      },
+      {
+        "count": 1,
+        "id": 5949
+      },
+      {
+        "count": 1,
+        "id": 2866
+      },
+      {
+        "count": 1,
+        "id": 2867
+      },
+      {
+        "count": 1,
+        "id": 2865
+      },
+      {
+        "count": 1,
+        "id": 7342
+      },
+      {
+        "count": 1,
+        "id": 9602
+      },
+      {
+        "count": 1,
+        "id": 2869
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 800,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 2,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 30,
+      "regex": "^glooth anemone$|^behemoth$|^drillworm$|^devourer$|^elder wyrm$|^wyrm$|^blood beast$|^metal gargoyle$|^rustheap golem$|^worker golem$|^war golem$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 2,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 5,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Glooth Anemone, Behemoth, drillworm, Devourer, Elder wyrm, wyrm, Blood beast, Metal gargoyle, rustheap golem, worker golem, war golem",
+      "rpSafe": false
+    }
+  ]
+}

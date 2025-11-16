@@ -1,0 +1,97 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 0,
+        "id": 3043
+      },
+      {
+        "count": 1,
+        "id": 3392
+      },
+      {
+        "count": 1,
+        "id": 3386
+      },
+      {
+        "count": 1,
+        "id": 7402
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2854
+      },
+      {
+        "count": 1,
+        "id": 2865
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 350,
+      "lureMin": 29,
+      "maxDistance": 4,
+      "anchorRange": 9,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 30,
+      "regex": "^.*$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 2,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": true,
+      "diamondArrows": false,
+      "delayFrom": 3,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "*",
+      "rpSafe": false
+    },
+    {
+      "lureDelay": 150,
+      "lureMin": 1,
+      "maxDistance": 4,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 2,
+      "rpSafe": false,
+      "chase": true,
+      "priority": 1,
+      "name": "Dragon Lord",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "dynamicLureDelay": true,
+      "danger": 1,
+      "delayFrom": 1,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^dragon lord$"
+    }
+  ]
+}

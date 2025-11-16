@@ -1,0 +1,87 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3065
+      },
+      {
+        "count": 1,
+        "id": 10438
+      },
+      {
+        "count": 1,
+        "id": 23542
+      },
+      {
+        "count": 1,
+        "id": 23544
+      },
+      {
+        "count": 24,
+        "id": 5944
+      },
+      {
+        "count": 99,
+        "id": 21197
+      },
+      {
+        "count": 29,
+        "id": 16135
+      },
+      {
+        "count": 69,
+        "id": 21182
+      },
+      {
+        "count": 7,
+        "id": 3034
+      },
+      {
+        "count": 94,
+        "id": 3202
+      }
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 650,
+      "lureMin": 2,
+      "maxDistance": 10,
+      "anchorRange": 1,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "regex": "^cave devourer$|^tunnel tyrant$|^high voltage elemental$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": true,
+      "delayFrom": 3,
+      "anchor": true,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Cave Devourer, tunnel tyrant, high voltage elemental",
+      "rpSafe": false
+    }
+  ]
+}

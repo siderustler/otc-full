@@ -1,0 +1,1063 @@
+{
+    "BotServerChannel": "DEJOWNIAAA",
+    "imbueItems": [{"id": 3031, "name": "gold coin"}, {"id": 3035, "name": "platinum coin"}],
+    "combobot": {
+      "attackSpellEnabled": false,
+      "attackLeaderTargetEnabled": false,
+      "shootLeader": "",
+      "serverTriggers": true,
+      "serverLeaderTarget": false,
+      "commandsEnabled": true,
+      "serverEnabled": false,
+      "onSayEnabled": false,
+      "attack": "",
+      "enabled": false,
+      "spell": "",
+      "onShootEnabled": false,
+      "attackItemToggle": false,
+      "onCastEnabled": false,
+      "item": 3155,
+      "sayPhrase": "",
+      "followLeaderEnabled": false,
+      "serverLeader": "",
+      "sayLeader": "",
+      "follow": "",
+      "castLeader": ""
+    },
+    "extras": {
+      "rope": 9596,
+      "pathfinding": true,
+      "timers": true,
+      "machete": 9596,
+      "looting": 38,
+      "reUse": false,
+      "gotoMaxDistance": 30,
+      "useAll": "space",
+      "holdMwall": true,
+      "checkPlayer": false,
+      "separatePm": false,
+      "suppliesControl": false,
+      "killUnder": 1,
+      "joinBot": false,
+      "lootLast": true,
+      "holdMwHot": "/",
+      "lootDelay": 1,
+      "shovel": 9596,
+      "reachable": true,
+      "title": true,
+      "autoOpenDoors": true,
+      "stake": false,
+      "scythe": 9596,
+      "huntRoutes": 300,
+      "oberon": true,
+      "antiKick": true,
+      "talkDelay": 1000,
+      "nextBackpack": true,
+      "holdWgHot": "*",
+      "highlightTarget": false,
+      "height": 360,
+      "bless": true
+    },
+    "caveBotTasker": {
+      "max": 0,
+      "monster": "",
+      "inProgress": false,
+      "count": 0,
+      "taskName": ""
+    },
+    "specialDeposit": {
+      "height": 380,
+      "items": [
+        {
+          "index": 0,
+          "id": 0
+        }
+      ]
+    },
+    "ingame_hotkeys": "\n\nlocal modalpanel = modules.game_modaldialog.modalDialog\nif modalpanel then\n    local choiceList = modalpanel:getChildById('choiceList')\n    if choiceList then\n        for i, widget in pairs(choiceList:getChildren()) do\n            if (widget:getText() == \"Daily Reward [pick reward!]\") then\n                choiceList:focusChild(widget)\n                modalpanel:onEnter()\n            end\n        end\n    end\n    modalpanel:onEnter()\nend",
+    "caveBot": {
+      "backOffline": false,
+      "backTrainers": false,
+      "forceRefill": false,
+      "backStop": false
+    },
+    "analyzers": {
+      "lootChannel": true,
+      "customPrices": [
+  
+      ],
+      "trackedLoot": [
+  
+      ],
+      "trackedBoss": [
+  
+      ],
+      "outfits": {
+        "Podpalacz": {
+          "feet": 20,
+          "type": 134,
+          "auxType": 0,
+          "legs": 123,
+          "addons": 3,
+          "body": 132,
+          "head": 20
+        },
+        "Masterno Pvp": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 95,
+          "addons": 0,
+          "body": 95,
+          "head": 85
+        },
+        "Mrx": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Natalie Wayne": {
+          "feet": 85,
+          "legs": 114,
+          "auxType": 0,
+          "type": 268,
+          "addons": 3,
+          "body": 88,
+          "head": 85
+        },
+        "Draco Malfoy": {
+          "feet": 94,
+          "type": 128,
+          "auxType": 0,
+          "legs": 86,
+          "addons": 0,
+          "body": 78,
+          "head": 76
+        },
+        "Sound Style": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Pies Psa": {
+          "feet": 78,
+          "type": 128,
+          "addons": 0,
+          "legs": 95,
+          "body": 78,
+          "auxType": 0,
+          "head": 95
+        },
+        "Buszek Fajter": {
+          "feet": 0,
+          "type": 128,
+          "auxType": 0,
+          "legs": 131,
+          "addons": 1,
+          "body": 0,
+          "head": 78
+        },
+        "Omnomnm": {
+          "feet": 94,
+          "type": 128,
+          "addons": 0,
+          "legs": 94,
+          "body": 94,
+          "auxType": 0,
+          "head": 94
+        },
+        "Czarodziej": {
+          "feet": 82,
+          "type": 130,
+          "auxType": 0,
+          "legs": 95,
+          "addons": 0,
+          "body": 114,
+          "head": 79
+        },
+        "Drakula": {
+          "feet": 94,
+          "legs": 94,
+          "addons": 0,
+          "type": 128,
+          "body": 94,
+          "auxType": 0,
+          "head": 94
+        },
+        "Perfect": {
+          "feet": 94,
+          "type": 128,
+          "auxType": 0,
+          "legs": 95,
+          "addons": 1,
+          "body": 114,
+          "head": 94
+        },
+        "Eder Druid": {
+          "addons": 0,
+          "feet": 114,
+          "mount": 0,
+          "body": 114,
+          "type": 136,
+          "auxType": 0,
+          "legs": 114,
+          "head": 114
+        },
+        "Yellow": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Tevaga": {
+          "feet": 83,
+          "type": 128,
+          "auxType": 0,
+          "legs": 95,
+          "addons": 0,
+          "body": 83,
+          "head": 95
+        },
+        "Galaco Shao": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 88,
+          "addons": 0,
+          "body": 88,
+          "head": 85
+        },
+        "Senger God": {
+          "feet": 57,
+          "type": 128,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 0,
+          "body": 124,
+          "head": 78
+        },
+        "Bambi Irl": {
+          "feet": 82,
+          "type": 144,
+          "auxType": 0,
+          "legs": 82,
+          "addons": 0,
+          "body": 82,
+          "head": 82
+        },
+        "Aee": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Majsterr": {
+          "feet": 0,
+          "type": 6,
+          "auxType": 0,
+          "legs": 0,
+          "addons": 0,
+          "body": 0,
+          "head": 0
+        },
+        "Xardasovsky": {
+          "feet": 85,
+          "type": 128,
+          "addons": 0,
+          "legs": 85,
+          "body": 79,
+          "auxType": 0,
+          "head": 79
+        },
+        "Vissari": {
+          "feet": 114,
+          "type": 269,
+          "addons": 3,
+          "legs": 85,
+          "body": 114,
+          "auxType": 0,
+          "head": 114
+        },
+        "Magomedov": {
+          "feet": 85,
+          "legs": 85,
+          "body": 85,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 85
+        },
+        "Nakurwiam Parale": {
+          "feet": 67,
+          "type": 128,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 1,
+          "body": 47,
+          "head": 114
+        },
+        "D-x-x": {
+          "feet": 85,
+          "type": 151,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 3,
+          "body": 85,
+          "head": 85
+        },
+        "Sraku": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Troyer": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Elon Bez Mozg": {
+          "feet": 0,
+          "type": 128,
+          "auxType": 0,
+          "legs": 76,
+          "addons": 0,
+          "body": 114,
+          "head": 113
+        },
+        "King Daglas": {
+          "feet": 79,
+          "legs": 113,
+          "auxType": 0,
+          "type": 134,
+          "addons": 3,
+          "body": 51,
+          "head": 40
+        },
+        "Jan Apostol": {
+          "feet": 85,
+          "legs": 85,
+          "body": 85,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 85
+        },
+        "Norweg": {
+          "feet": 79,
+          "type": 152,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 3,
+          "body": 114,
+          "head": 114
+        },
+        "Palek": {
+          "feet": 97,
+          "type": 128,
+          "auxType": 0,
+          "legs": 79,
+          "addons": 0,
+          "body": 86,
+          "head": 10
+        },
+        "Plastikowy": {
+          "feet": 114,
+          "type": 128,
+          "body": 114,
+          "legs": 114,
+          "auxType": 0,
+          "addons": 0,
+          "head": 114
+        },
+        "Battos": {
+          "feet": 85,
+          "type": 148,
+          "auxType": 0,
+          "legs": 91,
+          "addons": 0,
+          "body": 91,
+          "head": 85
+        },
+        "Ek Sio Wrona": {
+          "feet": 114,
+          "legs": 0,
+          "body": 0,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 0
+        },
+        "Dawid": {
+          "feet": 85,
+          "type": 129,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 85,
+          "head": 85
+        },
+        "Emgie": {
+          "feet": 78,
+          "type": 129,
+          "auxType": 0,
+          "legs": 124,
+          "addons": 0,
+          "body": 124,
+          "head": 78
+        },
+        "Mniszek Xd": {
+          "feet": 114,
+          "legs": 114,
+          "body": 114,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 114
+        },
+        "Fuhgeddaboudlt": {
+          "feet": 114,
+          "type": 130,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Deyovsky": {
+          "feet": 114,
+          "legs": 114,
+          "body": 114,
+          "type": 130,
+          "auxType": 0,
+          "addons": 0,
+          "head": 114
+        },
+        "M": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 114,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Lawenda": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Oktas": {
+          "feet": 114,
+          "type": 133,
+          "auxType": 0,
+          "legs": 94,
+          "addons": 0,
+          "body": 94,
+          "head": 114
+        },
+        "Ajam": {
+          "feet": 88,
+          "type": 128,
+          "auxType": 0,
+          "legs": 82,
+          "addons": 1,
+          "body": 82,
+          "head": 88
+        },
+        "Illiilliliilliilliiliilliilli": {
+          "feet": 114,
+          "type": 128,
+          "addons": 0,
+          "legs": 114,
+          "body": 114,
+          "auxType": 0,
+          "head": 114
+        },
+        "Ogar Zauwaz": {
+          "feet": 90,
+          "type": 128,
+          "auxType": 0,
+          "legs": 81,
+          "addons": 1,
+          "body": 81,
+          "head": 90
+        },
+        "Ugryzla Mnie Waszka": {
+          "feet": 91,
+          "type": 143,
+          "auxType": 0,
+          "legs": 79,
+          "addons": 3,
+          "body": 79,
+          "head": 91
+        },
+        "Tongkat Ali": {
+          "feet": 114,
+          "type": 128,
+          "auxType": 0,
+          "legs": 95,
+          "addons": 0,
+          "body": 57,
+          "head": 78
+        },
+        "Fraku": {
+          "feet": 77,
+          "type": 151,
+          "auxType": 0,
+          "legs": 94,
+          "addons": 3,
+          "body": 91,
+          "head": 90
+        },
+        "King Warrior": {
+          "feet": 94,
+          "type": 134,
+          "auxType": 0,
+          "legs": 94,
+          "addons": 3,
+          "body": 94,
+          "head": 94
+        },
+        "Litlle Fileman": {
+          "feet": 79,
+          "type": 128,
+          "auxType": 0,
+          "legs": 91,
+          "addons": 0,
+          "body": 91,
+          "head": 79
+        },
+        "Draku Pvp": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 90,
+          "addons": 0,
+          "body": 92,
+          "head": 91
+        },
+        "Warjaty Enjoyer": {
+          "feet": 114,
+          "legs": 114,
+          "auxType": 0,
+          "type": 152,
+          "addons": 2,
+          "body": 114,
+          "head": 78
+        },
+        "Flupiinne Don Machine": {
+          "feet": 0,
+          "type": 130,
+          "auxType": 0,
+          "legs": 0,
+          "addons": 0,
+          "body": 0,
+          "head": 0
+        },
+        "Dreadfull": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 114,
+          "head": 114
+        },
+        "Kurwa Mariusz Polej": {
+          "feet": 0,
+          "type": 128,
+          "auxType": 0,
+          "legs": 0,
+          "addons": 0,
+          "body": 0,
+          "head": 0
+        },
+        "Kielon": {
+          "feet": 114,
+          "legs": 114,
+          "body": 114,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 114
+        },
+        "Medive Medive Medive": {
+          "feet": 85,
+          "type": 130,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 85,
+          "head": 85
+        },
+        "Classic": {
+          "feet": 85,
+          "type": 129,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 1,
+          "body": 114,
+          "head": 114
+        },
+        "Houdini": {
+          "addons": 0,
+          "feet": 113,
+          "legs": 115,
+          "auxType": 0,
+          "mount": 0,
+          "body": 95,
+          "type": 142,
+          "head": 39
+        },
+        "War God": {
+          "feet": 43,
+          "legs": 43,
+          "body": 43,
+          "type": 128,
+          "auxType": 0,
+          "addons": 0,
+          "head": 43
+        },
+        "Adrian Pogromca Smokow": {
+          "feet": 85,
+          "type": 128,
+          "auxType": 0,
+          "legs": 85,
+          "addons": 0,
+          "body": 85,
+          "head": 85
+        },
+        "Dragon Ham Enjoyer": {
+          "feet": 94,
+          "type": 129,
+          "body": 86,
+          "legs": 86,
+          "auxType": 0,
+          "addons": 0,
+          "head": 94
+        }
+      },
+      "rarityFrames": true
+    },
+    "cavebotSell": [
+      {
+        "id": 23544,
+        "count": 1
+      },
+      {
+        "id": 3081,
+        "count": 1
+      }
+    ],
+    "bestHit": 0,
+    "EquipperPanel": {
+      "bosses": [
+  
+      ],
+      "enabled": false,
+      "rules": [
+        {
+          "mainCondition": 4,
+          "visible": true,
+          "relation": "or",
+          "optionalCondition": 12,
+          "mainValue": 70,
+          "optValue": 0,
+          "enabled": true,
+          "name": "ering",
+          "data": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3051,
+            0
+          ]
+        },
+        {
+          "mainCondition": 5,
+          "visible": true,
+          "relation": "or",
+          "optionalCondition": 13,
+          "mainValue": 71,
+          "optValue": 2,
+          "enabled": true,
+          "name": "weddingring",
+          "data": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3004,
+            0
+          ]
+        }
+      ]
+    },
+    "dropper": {
+      "enabled": true,
+      "trashItems": [
+  
+      ],
+      "useItems": [
+        {
+          "id": 21203,
+          "count": 1
+        },
+        {
+          "id": 14758,
+          "count": 1
+        }
+      ],
+      "capItems": [
+        {
+          "id": 3428,
+          "count": 1
+        }
+      ]
+    },
+    "_configs": {
+      "cavebot_configs": {
+        "enabled": false,
+        "selected": "xD"
+      },
+      "targetbot_configs": {
+        "enabled": true,
+        "selected": "dragon_lord"
+      }
+    },
+    "checkVersion": 1680347563,
+    "autoEquip": [
+      {
+        "item1": 3052,
+        "title": "Auto Equip",
+        "item2": 3089,
+        "on": false,
+        "slot": 9
+      },
+      {
+        "item1": 0,
+        "title": "Auto Equip",
+        "item2": 0,
+        "on": false,
+        "slot": 0
+      }
+    ],
+    "renameContainers": {
+      "sort": false,
+      "forceOpen": true,
+      "list": [
+        {
+          "items": [
+            {
+              "id": 3004,
+              "count": 1
+            }
+          ],
+          "value": "Main",
+          "enabled": false,
+          "min": true,
+          "item": 7342
+        },
+        {
+          "items": [
+            {
+              "id": 3428,
+              "count": 1
+            },
+            {
+              "id": 3386,
+              "count": 1
+            },
+            {
+              "id": 3392,
+              "count": 1
+            },
+            {
+              "id": 7402,
+              "count": 1
+            }
+          ],
+          "value": "Loot",
+          "item": 9602,
+          "enabled": false,
+          "min": true,
+          "openNext": true
+        },
+        {
+          "items": [
+            {
+              "id": 238,
+              "count": 0
+            },
+            {
+              "id": 3155,
+              "count": 0
+            }
+          ],
+          "value": "Supplies",
+          "enabled": false,
+          "min": true,
+          "item": 8860
+        }
+      ],
+      "purse": false,
+      "enabled": true,
+      "height": 170
+    },
+    "BOTserver": {
+      "manaInfo": true,
+      "mwallInfo": true,
+      "mwalls": [
+  
+      ],
+      "outfit": false,
+      "broadcasts": true,
+      "vocation": true,
+      "enabled": true
+    },
+    "pushmax": {
+      "pushMaxRuneId": 3188,
+      "mwallBlockId": 2128,
+      "pushDelay": 1060,
+      "enabled": false,
+      "pushMaxKey": "PageUp"
+    },
+    "_macros": {
+      "": true,
+      "AntiRS & Msg": false,
+      "NAME": false,
+      "Imbuement Items": false,
+      "Auto Eater": false,
+      "Siemanko": false,
+      "imbuingwindow show": false,
+      "Exchange money": true,
+      "Auto click Modal": false,
+      "elo": false
+    },
+    "alarms": {
+      "privateMsg": [
+  
+      ],
+      "customMessage": {
+        "value": ""
+      },
+      "flashClient": {
+        "enabled": true
+      },
+      "lowMana": {
+        "value": 80,
+        "enabled": false
+      },
+      "creatureDetected": [
+  
+      ],
+      "damageTaken": {
+        "enabled": false
+      },
+      "playerAttack": [
+  
+      ],
+      "ignoreFriends": [
+  
+      ],
+      "defaultMsg": [
+  
+      ],
+      "playerDetected": {
+        "enabled": true
+      },
+      "enabled": false,
+      "lowHealth": {
+        "value": 20
+      },
+      "creatureName": {
+        "value": ""
+      }
+    },
+    "moneyItems": [
+      {
+        "id": 3031,
+        "count": 1
+      },
+      {
+        "id": 3035,
+        "count": 1
+      }
+    ],
+    "playerList": {
+      "enemyList": [
+  
+      ],
+      "outfits": false,
+      "friendList": [
+  
+      ],
+      "groupMembers": true,
+      "highlight": false,
+      "blackList": [
+  
+      ],
+      "marks": false
+    },
+    "newHealer": {
+      "vocations": [
+  
+      ],
+      "conditions": {
+        "sorcerers": true,
+        "knights": true,
+        "friends": false,
+        "botserver": false,
+        "paladins": true,
+        "party": true,
+        "druids": true,
+        "guild": true
+      },
+      "enabled": false,
+      "priorities": [
+        {
+          "normal": true,
+          "enabled": true,
+          "name": "Exura Sio"
+        },
+        {
+          "custom": true,
+          "enabled": false,
+          "name": "Custom Spell"
+        },
+        {
+          "strong": true,
+          "enabled": false,
+          "name": "Exura Gran Sio"
+        },
+        {
+          "enabled": false,
+          "name": "Exura Gran Mas Res",
+          "area": true
+        },
+        {
+          "health": true,
+          "enabled": false,
+          "name": "Health Item"
+        },
+        {
+          "enabled": false,
+          "name": "Mana Item",
+          "mana": true
+        }
+      ],
+      "customPlayers": [
+  
+      ],
+      "groups": [
+  
+      ],
+      "settings": [
+        {
+          "type": "HealItem",
+          "text": "Mana Item ",
+          "value": 268
+        },
+        {
+          "type": "HealScroll",
+          "text": "Item Range: ",
+          "value": 6
+        },
+        {
+          "type": "HealItem",
+          "text": "Health Item ",
+          "value": 3160
+        },
+        {
+          "type": "HealScroll",
+          "text": "Mas Res Players: ",
+          "value": 0
+        },
+        {
+          "type": "HealScroll",
+          "text": "Heal Friend at: ",
+          "value": 70
+        },
+        {
+          "type": "HealScroll",
+          "text": "Use Gran Sio at: ",
+          "value": 0
+        },
+        {
+          "type": "HealScroll",
+          "text": "Min Player HP%: ",
+          "value": 93
+        },
+        {
+          "type": "HealScroll",
+          "text": "Min Player MP%: ",
+          "value": 20
+        }
+      ]
+    },
+    "autoTradeMessage": "I'm using OTClientV8!",
+    "foodItems": [
+      {
+        "id": 3725,
+        "count": 33
+      },
+      {
+        "id": 3577,
+        "count": 1
+      },
+      {
+        "id": 3607,
+        "count": 1
+      },
+      {
+        "id": 3585,
+        "count": 1
+      },
+      {
+        "id": 3592,
+        "count": 1
+      },
+      {
+        "id": 3600,
+        "count": 1
+      },
+      {
+        "id": 3601,
+        "count": 1
+      }
+    ],
+    "bestHeal": 80
+  }

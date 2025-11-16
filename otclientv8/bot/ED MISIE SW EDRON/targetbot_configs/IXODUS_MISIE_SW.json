@@ -1,0 +1,75 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 22085
+      },
+      {
+        "count": 1,
+        "id": 22086
+      },
+      {
+        "count": 1,
+        "id": 22101
+      },
+      {
+        "count": 1,
+        "id": 3098
+      },
+      {
+        "count": 1,
+        "id": 22102
+      },
+      {
+        "count": 1,
+        "id": 3081
+      },
+      {
+        "count": 1,
+        "id": 22103
+      }
+    ],
+    "maxDanger": 5,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 23721
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 284,
+      "lureMin": 2,
+      "maxDistance": 8,
+      "anchorRange": 1,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 3,
+      "lureMax": 9,
+      "regex": "^werebear$|^werefox$|^werebadger$|^wereboar$|^werewolf$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": true,
+      "danger": 1,
+      "keepDistanceRange": 3,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 2,
+      "anchor": true,
+      "closeLureAmount": 4,
+      "rePosition": false,
+      "name": "Werebear, Werefox, Werebadger, Wereboar, Werewolf",
+      "rpSafe": false
+    }
+  ]
+}

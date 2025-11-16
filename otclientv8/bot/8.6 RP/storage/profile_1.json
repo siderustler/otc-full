@@ -1,0 +1,851 @@
+{
+  "autohastespell": "utani tempo hur",
+  "belowhp": "101",
+  "killSteal": {
+    "setting": true,
+    "enabled": false,
+    "hp": 60
+  },
+  "followLeader": "player name",
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "rarityFrames": true
+  },
+  "ExivaPlayer": "Player Name",
+  "jewelleryEquipper": {
+    "ringMin": 30,
+    "ammyMin": 30,
+    "safe": false,
+    "valueAmmy": false,
+    "ammySwitch": true,
+    "ringMax": 80,
+    "valueRing": false,
+    "ringId": 3048,
+    "ringValue": "HP",
+    "safeMin": 30,
+    "ammyId": 3081,
+    "ringSwitch": true,
+    "ammyMax": 80,
+    "ammyValue": "HP"
+  },
+  "vithraxFollow": "Player Name",
+  "autoParty": {
+    "onMove": true,
+    "enabled": true,
+    "leaderName": "Who's Back",
+    "autoPartyList": [
+      "Gmzrobilwbambuko"
+    ]
+  },
+  "advancedFriendHealer": {
+    "itemHeal": false,
+    "healEd": true,
+    "id": 3160,
+    "healRp": true,
+    "exuraSio": true,
+    "healMs": true,
+    "minMana": 15,
+    "exuraGranSio": false,
+    "healEk": true,
+    "customSpellName": "exura max sio",
+    "exuraMasRes": false,
+    "distance": 8,
+    "enabled": false,
+    "minFriendHp": 80,
+    "customSpell": false
+  },
+  "newHealer": {
+    "settings": [
+      {
+        "type": "HealItem",
+        "value": 238,
+        "text": "Mana Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Item Range: "
+      },
+      {
+        "type": "HealItem",
+        "value": 3160,
+        "text": "Health Item "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Mas Res Players: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 80,
+        "text": "Heal Friend at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Use Gran Sio at: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 0,
+        "text": "Min Player HP%: "
+      },
+      {
+        "type": "HealScroll",
+        "value": 20,
+        "text": "Min Player MP%: "
+      }
+    ],
+    "conditions": {
+      "sorcerers": true,
+      "knights": true,
+      "friends": true,
+      "botserver": false,
+      "paladins": true,
+      "party": true,
+      "druids": true,
+      "guild": true
+    },
+    "customPlayers": [
+
+    ],
+    "priorities": [
+      {
+        "normal": true,
+        "enabled": true,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": false,
+        "name": "Mana Item",
+        "mana": true
+      },
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": false,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "enabled": false,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": false,
+        "name": "Health Item"
+      }
+    ],
+    "enabled": false,
+    "groups": [
+
+    ],
+    "vocations": [
+
+    ]
+  },
+  "autoTradeMessage": "SELL EXP POTIONS 50% / STAMINA DOLLS",
+  "uespell": "EXEVO GRAN MAS FRIGO",
+  "ingame_hotkeys": "macro(500, \"Exeta\",  function()\nlocal whitelist = {\"MOB NAME\"} --< NIE WPISUJE PRZY WYBRANYM MOBIE\nlocal isSafe = true;\n    local specAmount = 0\n    for i,mob in ipairs(getSpectators()) do\n        if (mob:isPlayer() and player:getName() ~= mob:getName() and not table.find(whitelist, mob:getName())) then\n            isSafe = false;\n        end\nif (getDistanceBetween(player:getPosition(), mob:getPosition())  <= 3 and mob:isMonster() and not table.find(whitelist, mob:getName())) then\n            specAmount = specAmount + 1\n        end\n    end\n    if (specAmount >= 1) then\n        say(\"exeta res\")\n        delay(1000)\n    end\nend)\n\n\nlocal healPercent = 100 -- % of hp to use rune above on friend\nlocal friendList = {\"Tarambuniarz\"} -- list of players to use rune on\n\nlocal minMana = 70 -- minimum mana % to uh friend\nlocal minHp = 40   -- minimum health % to uh friend\n\n-- script\n\nmacro(500, \"MANA FRIEND\", function()\n    for _, spec in pairs(getSpectators()) do\n        if table.find(friendList, spec:getName()) and hppercent() >= minHp and manapercent() >= minMana then\n            if spec:getHealthPercent() <= healPercent and getDistanceBetween(player:getPosition(), spec:getPosition()) == 1 then\n                useWith(237, spec)\n            end\n        end\n    end\nend)\n\n\nlocal friendManaState = false\nlocal friendName = \"Tarambuniarz\"\n\nonScreen= macro(100,\"friend OS\", function()\n    local spectators = getSpectators(pos(), false)\n    for i, spec in pairs(spectators) do\n        if spec:getName() == friendName then\n          if getDistanceBetween(pos(), spec:getPosition()) < 5 and friendManaState then\n            return CaveBot.setOn()\n          end\n        end\n    end\n    return CaveBot.setOff()\nend)\n\n\n\n\n\nonTalk(function(name, level, mode, text, channelId, pos)\n    if name ~= \"Tarambuniarz\" then return end\n    if text == \"start\" then\n        friendManaState = true\n        CaveBot.setOn()\n    end\n    if text == \"stop\" then\n        friendManaState = false\n        CaveBot.setOff()\n    end\nend)\n\n\n\n\nlocal utamka = macro((60 * 1000) * 2, function()\n    say(\"utamo vita\")\nend)\n\naddIcon(\"utamo vita\", {item={id = 8090}, movable=true, text=\"Utama\"}, function(icon, isOn)\n    if isOn then\n        say(\"utamo vita\")  \n    end\n    utamka.setOn(isOn)\nend)\n\n\n\n\nlocal dropItems = { 3031, 3035 }\nlocal maxStackedItems = 10\nlocal dropDelay = 100\n\ngpAntiPushDrop = macro(dropDelay, function ()\n  antiPush()\nend)\n\nonPlayerPositionChange(function()\n    antiPush()\nend)\n\nfunction antiPush()\n  if gpAntiPushDrop:isOff() then\n    return\n  end\n\n  local tile = g_map.getTile(pos())\n  if tile and tile:getThingCount() < maxStackedItems then\n    local thing = tile:getTopThing()\n    if thing and not thing:isNotMoveable() then\n      for i, item in pairs(dropItems) do\n        if item ~= thing:getId() then\n            local dropItem = findItem(item)\n            if dropItem then\n              g_game.move(dropItem, pos(), 1)\n            end\n        end\n      end\n    end\n  end\nend\naddIcon(\"Anti\", {item={id = 3043}, text=\"AntyP\"}, function(icon, isOn)\n  gpAntiPushDrop.setOn(isOn) \nend)\n\nlocal cwel = hotkey(\"2\", \"Gold drop\", function()\n    local tile = getTileUnderCursor()\n    if tile then\n        local pos = tile:getPosition()\n       local itemToMouse = 3031\n        for _, container in pairs(g_game.getContainers()) do\n            for __, item in ipairs(container:getItems()) do\n                if item:getId() == itemToMouse then\n                    return g_game.move(item, pos, 1)\n                end\n            end\n        end\n    end\nend)\n\nlocal c = {\npickUp = {3031, 3035, 2981, 2983, 2984, 2985, 2988}, \nCheckPOS = 1-- The SQM from your character to check if theres an item.\n}\nzbieraczka = macro(100, function()\nfor x = -c.CheckPOS, c.CheckPOS do\nfor y = -c.CheckPOS, c.CheckPOS do\nlocal tile = g_map.getTile({x = posx() + x, y = posy() + y, z = posz()})\nif tile then\nlocal things = tile:getThings()\nfor _, item in pairs(things) do\nif table.find(c.pickUp, item:getId()) then\nlocal containers = getContainers()\nfor _, container in pairs(containers) do\ng_game.move(item, container:getSlotPosition(container:getItemsCount()), item:getCount())\nend\nend\nend\nend\nend\nend\nend)\n\naddIcon(\"Zbieracz\", {item={id = 2867}, text=\"Zbieracz\"}, function(icon, isOn)\n  zbieraczka.setOn(isOn) \nend)\n\n\n\n\nlocal amuletID = 3081\nSSA = macro(100, function()\nif getNeck() == nil or getNeck():getId() ~= amuletID then\nmoveToSlot(amuletID, SlotNeck)\n   end\nend)\naddIcon(\"SSA\", {item={id = 3081}, text=\"SSA\"}, function(icon, isOn)\n  SSA.setOn(isOn) \nend)\n\n\nlocal ringID = 3048\nMR = macro(100, function()\nif getFinger() == nil or getFinger():getId() ~= ringID then\nmoveToSlot(ringID, SlotFinger)\n   end\nend)\naddIcon(\"MR\", {item={id = 3048}, text=\"MR\"}, function(icon, isOn)\n  MR.setOn(isOn) \nend)\n\nhaste = macro(100, function()\n  if isInPz() then \n    return \n  end\n  if hasHaste() then \n    return \n  end\n  if not hasHaste() then\nsay(\"utani gran hur\")\n  end\nend)\n\naddIcon(\"haste\", {item={id = 3079}, text=\"Haste\"}, function(icon, isOn)\n  haste.setOn(isOn) \nend)\n\nleczenie = macro(100, function()\n\nif (hppercent() <= 93) then\n    say(\"exura vita\")\n  end\nend)\n\naddIcon(\"leczenie\", {item={id = 3160}, text=\"Exura\"}, function(icon, isOn)\n  leczenie.setOn(isOn) \nend)\n\nlocal manaCost = 1400\nlocal ex = 1000\naddIcon(\"PARALBLACH\", {item={id=3165}, text=\"PARAL BLACH\"}, macro(100, function()\n    for _, spec in ipairs(getSpectators()) do\n      if not spec:isPlayer() then return end\n            if spec:getEmblem() == 2 and mana() >= manaCost then\n    useWith(3165, spec)\n        delay(ex)\n        end\n    end\nend))\n\nlocal target \nonAttackingCreatureChange(function(creature, oldCreature)\n  if creature then\n    target = creature\n  end\nend)\n\n\ncwel = macro(100, function() \n  if not target then return end\n  say('exiva \"' .. target:getName())\ndelay(1000)\nend)\n\naddIcon(\"exivatarget\", {item={id = 1949}, text=\"ExivaT\"}, function(icon, isOn)\n  cwel.setOn(isOn) \nend)\n\n\n\nlocal panelName = \"tcLastExiva\"\nlocal tcLastExiva = setupUI([[\nExivaLabel < Label\n  height: 12\n  background-color: #00000055\n  opacity: 0.89\n  anchors.horizontalCenter: parent.horizontalCenter\n  text-auto-resize: true\n  font: verdana-11px-rounded\n\nPanel\n  id: msgPanel\n  height: 26\n  width: 100\n  anchors.bottom: parent.bottom\n  anchors.horizontalCenter: parent.horizontalCenter\n  margin-bottom: 20\n\n  ExivaLabel\n    id: lblMessage\n    color: green\n    anchors.bottom: parent.bottom\n    !text: 'None.'\n\n  ExivaLabel\n    id: lblExiva\n    color: orange\n    anchors.bottom: prev.top\n    !text: 'Last Exiva: None'\n\n]], modules.game_interface.getMapPanel())\n\nlocal tclastExivaUI = setupUI([[\nPanel\n  margin: 3\n  height: 66\n  layout:\n    type: verticalBox\n\n  HorizontalSeparator\n    id: separator\n\n  Label\n    id: title\n    text: Last Exiva\n    margin-top: 1\n    text-align: center\n    font: verdana-11px-rounded\n\n  Panel\n    id: time\n    height: 22\n    Label\n      !text: 'Time in seconds:'\n      anchors.left: parent.left\n      anchors.verticalCenter: parent.verticalCenter\n      anchors.right: next.left\n      text-align: center\n      height: 15\n      margin-right: 6\n      font: verdana-11px-rounded\n\n    BotTextEdit\n      id: text\n      text: 1\n      anchors.right: parent.right\n      anchors.verticalCenter: parent.verticalCenter\n      margin-left: 5\n      height: 17\n      width: 55\n      font: verdana-11px-rounded\n\n  ]], parent)\n\nif not storage[panelName] then\n  storage[panelName] = {\n    name = '',\n    timer = 1,\n  }\nend\n\ntclastExivaUI.time.text:setText(storage[panelName].timer)\ntclastExivaUI.time.text.onTextChange = function(widget, text)\n  storage[panelName].timer = tonumber(text)\nend\n\nlocal lastExiva = ''\nlastExiva = storage[panelName].name\ntcLastExiva.lblExiva:setText('Last Exiva: ' .. lastExiva)\n\nonTalk(function(name, level, mode, text, channelId, pos)\n  if name ~= player:getName() then return end\n  text = text:lower()\n  -- uncomment the warn below to find the channel mode if this doesn't work\n  -- cast exiva and you should see NUMBER :  exiva \"name\"\n  -- warn(mode.. ':'..text)\n  if (mode == 34 or mode == 44) and text:find('exiva ') then\n   lastExiva = string.match(text, [[exiva \"([^\"]+)]])\n    if lastExiva then\n      storage[panelName].name = lastExiva\n      tcLastExiva.lblExiva:setText('Last Exiva: ' .. lastExiva)\n    end\n  end\nend)\n\nonTextMessage(function(mode, text)\n  if mode ~= 20 then return end\n  local regex = \"([a-z A-Z]*) is ([a-z -A-Z]*)(?:to the|standing|below|above) ([a-z -A-Z]*).\"\n  local data = regexMatch(text, regex)[1]\n  if data and data[2] and data[3] then\n    schedule(10, function()\n      tcLastExiva.lblMessage:setText(text)\n    end)\n  end\nend)\n\ntclastExivaMacro = macro(100, \"Enable\", function()\n  if lastExiva:len() > 0 then\n    say('exiva \"' .. lastExiva)\n  end\n  delay(tonumber(storage[panelName].timer) * 1000)\nend, tclastExivaUI)\nUI.Separator(tclastExivaUI)\n\naddIcon(\"exivalast\", {item={id = 1949}, text=\"Exiva Last\"}, function(icon, isOn)\n  tclastExivaMacro.setOn(isOn) \nend)\n\n\nlocal holdMwallHotkey = 'Shift+F5'\nlocal holdMwallText = 'Hold MWall'\nlocal holdMwallTextCol = 'yellow'\nlocal holdMwallTiles = {}\nlocal holdMwallIsOn = false\n\nonKeyPress(function(keys)\n  if keys == holdMwallHotkey and holdMwallIsOn then\n    local tile = getTileUnderCursor()\n    local currTile = table.find(holdMwallTiles, tile)\n    if currTile then\n      holdMwallTiles[currTile]:setText('')\n      table.remove(holdMwallTiles, currTile)\n    else\n      table.insert(holdMwallTiles, tile)\n      holdMwallTiles[#holdMwallTiles]:setText(holdMwallText, holdMwallTextCol)\n    end\n  end\nend)\n\naddSwitch('holdMwall', 'Better Hold MWall', function(widget)\n  widget:setOn(not widget:isOn())\n  if not widget:isOn() then\n    for i = 1, #holdMwallTiles do\n      holdMwallTiles[1]:setText('')\n      table.remove(holdMwallTiles, 1)\n    end\n  end\n  holdMwallIsOn = widget:isOn()\nend)\n\nmacro(10, function()\n  if holdMwallIsOn then\n    for _, holdMwallTile in pairs(holdMwallTiles) do\n      if holdMwallTile:getTopThing():getId() ~= 2129 and holdMwallTile:isWalkable() then\n        useWith(3180, holdMwallTile:getTopUseThing())\n        return\n      end\n    end\n  end\nend)\n\n\nlocal holdMwallHotkey = 'PageDown'\nlocal holdMwallText = 'Hold Krzak'\nlocal holdMwallTextCol = 'red'\nlocal holdMwallTiles = {}\nlocal holdMwallIsOn = false\n\nonKeyPress(function(keys)\n  if keys == holdMwallHotkey and holdMwallIsOn then\n    local tile = getTileUnderCursor()\n    local currTile = table.find(holdMwallTiles, tile)\n    if currTile then\n      holdMwallTiles[currTile]:setText('')\n      table.remove(holdMwallTiles, currTile)\n    else\n      table.insert(holdMwallTiles, tile)\n      holdMwallTiles[#holdMwallTiles]:setText(holdMwallText, holdMwallTextCol)\n    end\n  end\nend)\n\naddSwitch('holdmwall', 'Better Hold Krzak', function(widget)\n  widget:setOn(not widget:isOn())\n  if not widget:isOn() then\n    for i = 1, #holdMwallTiles do\n      holdMwallTiles[1]:setText('')\n      table.remove(holdMwallTiles, 1)\n    end\n  end\n  holdMwallIsOn = widget:isOn()\nend)\n\nmacro(1, function()\n  if holdMwallIsOn then\n    for _, holdMwallTile in pairs(holdMwallTiles) do\n      if holdMwallTile:getTopThing():getId() ~= 2130 and holdMwallTile:isWalkable() then\n        useWith(3156, holdMwallTile:getTopUseThing())\n        return\n      end\n    end\n  end\nend)\n\n\n\nlocal cwel = hotkey(\"Shift+F4\", \"Kwiat drop\", function()\n    local tile = getTileUnderCursor()\n    if tile then\n        local pos = tile:getPosition() \n       local itemToMouse = {2981, 2983, 2984, 2985, 2988, 2779}\n        for _, container in pairs(g_game.getContainers()) do\n            for __, item in ipairs(container:getItems()) do\n                if table.find(itemToMouse, item:getId()) and not table.find(itemToMouse, tile:getTopThing():getId()) then\n                    return g_game.move(item, pos, 1)\n                end\n            end\n        end\n    end\nend)\n\n\n\n\nmacro(300, \"Wymiana Kaski\", function()\n    local tokens = player:getItemsCount(3031)\n    if tokens < 1 then return g_game.use(findItem(3035)) end\nend)\n\n\n\nlocal keys = {\n  {key = \"Numpad8\", walk = 0}, \n  {key = \"Numpad6\", walk = 1}, \n  {key = \"Numpad2\", walk = 2},\n  {key = \"Numpad4\", walk = 3},\n  {key = \"Numpad9\", walk = 4}, \n  {key = \"Numpad3\", walk = 5},\n  {key = \"Numpad1\", walk = 6},\n  {key = \"Numpad7\", walk = 7}\n}\n\nmacro(1, \"DASH\", function()\n  for k, keyset in pairs(keys) do\n    if modules.corelib.g_keyboard.isKeyPressed(keyset.key) then\n      walk(keyset.walk)\n      break\n    end\n  end\nend)\n\n\n\nlocal tools = {3308} -- IDs das machadinhas e picaretas\nlocal WILD_GROWTH_ID = 2130 -- ID do Wild Growth\nmaczeta = macro(50, \"Cut Wild Growth\", function()\nlocal playerPos = player:getPosition() -- Posiçao do personagem\nlocal tilesAroundPlayer = getNearTiles(playerPos) -- Tiles ao redor do personagem\n\nif isInPz() then return end\n\nfor _, toolId in ipairs(tools) do\nlocal tool = findItem(toolId)\n\nif tool then\n  for i = 1, #tilesAroundPlayer do\n    local tile = tilesAroundPlayer[i]\n    \n    if tile:getTopUseThing() and tile:getTopUseThing():getId() == WILD_GROWTH_ID then\n      useWith(tool, tile:getTopUseThing())\n      return\n    end\n  end\nend\nend\nend)\n\naddIcon(\"Maczeta\", {item={id = 3308}, text=\"Maczeta\"}, function(icon, isOn)\n  maczeta.setOn(isOn) \nend)\n\n\n\n\n--\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--          [[[[[[[[[[ MAX PUSH ]]]]]]]]]]\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--\n\nlocal pushMaxState = {\n  tileTo = nil,\n  target = nil,\n  posFrom = nil,\n  state = 0,\n}\n\nlocal pushMaxCfg = {\n  pushDelay = 1030,\n  fieldId = 3197,\n}\n\nfunction resetPushMaxState()\n  if pushMaxState.posFrom then \n    g_map.getTile(pushMaxState.posFrom):setText('') \n  end\n  if pushMaxState.tileTo then \n    pushMaxState.tileTo:setText('') \n  end\n  pushMaxState.tileTo = nil\n  pushMaxState.posFrom = nil\n  pushMaxState.target = nil\n  pushMaxState.state = 0\nend\n\nfunction setState(tile)\n  if pushMaxState.state == 0 then\n    creature = tile:getCreatures() and tile:getCreatures()[1]\n    if creature and creature:isPlayer() then\n      pushMaxState.posFrom = creature:getPosition()\n      pushMaxState.target = creature\n      tile:setText('FROM')\n    else\n      tile:setText('NOT PLAYER')\n      return\n    end\n  end\n  if pushMaxState.state == 1 then\n    if not tile:isPathable() then \n      tile:setText('WRONG TILE') \n    end\n    pushMaxState.tileTo = tile\n    tile:setText('HERE')\n  end\n  pushMaxState.state = pushMaxState.state + 1\nend\n\n-- state manager\nonKeyPress(function(keys)\n  if keys:lower() == \"`\" then\n    if pushMaxState.state > 1 then\n      resetPushMaxState()\n      return\n    end\n    tile = getTileUnderCursor(mousePos)\n    setState(tile)\n  end\nend)\n\nonCreaturePositionChange(function(creature,newPos,oldPos)\n  if creature == player or creature == pushMaxState.target then \n    resetPushMaxState()\n    vBot.isUsing = false\n  end\nend)\n\n\n\n\n\n\nlocal switch = macro(75, \"Ultimate Follow:\", function(macro)\n    local target = getCreatureByName(storage.vithraxFollow)\n    local tpos = target and target:getPosition()\n\n    -- clear table, target is near you\n    if tpos and getDistanceBetween(tpos,pos()) < 2 then\n        movementHistory = {}\n        return\n    end\n    local dest = movementHistory[posz()]\n\n    -- position is not registered but target is on screen, so add it\n    if tpos and not dest then\n        local path = findPath(tpos, pos(), 20, { ignoreNonPathable = true, precision = 1 })\n        if path then\n            dest = tpos\n        end\n    end\n\n    -- no registered position on current floor, maybe falled into some hole\n    if not dest then\n        if useAll() then\n            return\n        end\n        delay(100)\n    end\n\n    -- reached position on current floor and still no target, maybe he ladder/rope or something\n    if dest and getDistanceBetween(dest, pos()) == 0 then\n        delay(100)\n        useAll()\n        return\n    end\n\n    local path = findPath(pos(), dest, 20, { ignoreNonPathable = true, precision = 1 })\n    if not path then\n        -- cant find a way to next waypoint, need to figure out some pathfinding option\n        useAll()\n        delay(100)\n        return\n    end\n\n    -- probably reachable\n    CaveBot.walkTo(dest, 20, { ignoreNonPathable = true, precision = target and 1 or 0 })\nend)\n\nUI.TextEdit(storage.vithraxFollow or 'Player Name', function(widget, newText)\n    storage.vithraxFollow = newText\nend)\n\nonCreaturePositionChange(function(creature, oldPos, newPos)\n    if switch.isOff() then return end\n    if not newPos then return end\n    if creature:getName():lower() ~= storage.vithraxFollow:lower():trim() then return end\n\n    -- register position on current floor\n    movementHistory[newPos.z] = newPos\nend)\n\n\n\nmacro(100, \"Attack Player\", function()\n  if not g_game.isAttacking() or not storage.targetName then\n  if getCreatureByName(storage.targetName) then\n  g_game.attack(getCreatureByName(storage.targetName))\n  end\n  end\n  end)\n\n  addLabel(\"targettext\", \"TargetName:\")\n  addTextEdit(\"followleader\", storage.targetName or \"Player Name\",\n  function(widget, text)    storage.targetName= text end)\n\n\n\n\nmacro(1000, \"Follow Target\", function()\n  if g_game.getChaseMode() ~= 1 then\n    g_game.setChaseMode(1)\n  end\nend)\n\n\n\nmacro(500, \"Pisanie do EK1\", function()\nlocal playerName = getCreatureByName(\"Who's Back\") -- THE NICKNAME OF THE CHARACTER HE SEES\nlocal manahigh = 90\nlocal manalow = 70\n\nlocal charName = \"Who's Back\" -- TO WHOM TO SEND THE MESSAGE\n\nlocal message = \"start\" -- MESSAGE TO BE SENT\nlocal message2 = \"stop\"\n\n\n  if playerName and manapercent() > manahigh then\n\n    sayPrivate(charName, message)\n\n    delay(3000)\nend\n\n   if playerName and manapercent() < manalow then\n         sayPrivate(charName,message2)\n\n  delay(3000)\n  end\nend)\n\n\nmacro(500, function()\n    if getMonsters(3,false) < 1 then return end\n    if player:getLevel() < 300 then\n        g_game.talk(\"exevo gran mas frigo\")\n        return\n    end\n    g_game.talk(\"exevo gran max frigo\")\nend)\n\n\n\n\nlocal panelName = \"autoParty\"\nlocal autopartyui = setupUI([[\nPanel\n  height: 38\n\n  BotSwitch\n    id: status\n    anchors.top: parent.top\n    anchors.left: parent.left\n    text-align: center\n    width: 130\n    height: 18\n    text: Auto Party\n\n  Button\n    id: editPlayerList\n    anchors.top: prev.top\n    anchors.left: prev.right\n    anchors.right: parent.right\n    margin-left: 3\n    height: 17\n    text: Setup\n\n  Button\n    id: ptLeave\n    text: Leave Party\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    width: 86\n    height: 17\n    margin-top: 3\n    color: #ee0000\n\n  Button\n    id: ptShare\n    text: Share XP\n    anchors.left: prev.right\n    anchors.top: prev.top\n    margin-left: 5\n    height: 17\n    width: 86\n\n  ]], parent)\n\ng_ui.loadUIFromString([[\nAutoPartyName < Label\n  background-color: alpha\n  text-offset: 2 0\n  focusable: true\n  height: 16\n\n  $focus:\n    background-color: #00000055\n\n  Button\n    id: remove\n    text: x\n    anchors.right: parent.right\n    margin-right: 15\n    width: 15\n    height: 15\n\nAutoPartyListWindow < MainWindow\n  text: Auto Party\n  size: 180 275\n  @onEscape: self:hide()\n\n  Label\n    id: lblLeader\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: parent.top\n    anchors.right: parent.right\n    text-align: center\n    text: Leader Name\n\n  TextEdit\n    id: txtLeader\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: prev.bottom\n    margin-top: 5\n\n  Label\n    id: lblParty\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    anchors.right: parent.right\n    margin-top: 5\n    text-align: center\n    text: Party List\n\n  TextList\n    id: lstAutoParty\n    anchors.top: prev.bottom\n    anchors.left: parent.left\n    anchors.right: parent.right\n    margin-top: 5\n    margin-bottom: 5\n    padding: 1\n    height: 83\n    vertical-scrollbar: AutoPartyListListScrollBar\n\n  VerticalScrollBar\n    id: AutoPartyListListScrollBar\n    anchors.top: lstAutoParty.top\n    anchors.bottom: lstAutoParty.bottom\n    anchors.right: lstAutoParty.right\n    step: 14\n    pixels-scroll: true\n\n  TextEdit\n    id: playerName\n    anchors.left: parent.left\n    anchors.top: lstAutoParty.bottom\n    margin-top: 5\n    width: 120\n\n  Button\n    id: addPlayer\n    text: +\n    anchors.right: parent.right\n    anchors.left: prev.right\n    anchors.top: prev.top\n    margin-left: 3\n\n  HorizontalSeparator\n    id: separator\n    anchors.right: parent.right\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    margin-top: 8\n\n  CheckBox\n    id: creatureMove\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: prev.bottom\n    margin-top: 6\n    text: Invite on move\n    tooltip: This will activate the invite on player move.\n\n  HorizontalSeparator\n    id: separator\n    anchors.right: parent.right\n    anchors.left: parent.left\n    anchors.bottom: closeButton.top\n    margin-bottom: 8\n\n  Button\n    id: closeButton\n    text: Close\n    font: cipsoftFont\n    anchors.right: parent.right\n    anchors.bottom: parent.bottom\n    size: 45 21\n]])\n\nif not storage[panelName] then\n    storage[panelName] = {\n        leaderName = 'Leader',\n        autoPartyList = {},\n        enabled = true,\n    }\nend\n\nif not storage[panelName].onMove then\n    storage[panelName].onMove = false\nend\nrootWidget = g_ui.getRootWidget()\nif rootWidget then\n    tcAutoParty = autopartyui.status\n\n    autoPartyListWindow = UI.createWindow('AutoPartyListWindow', rootWidget)\n    autoPartyListWindow:hide()\n\n    autopartyui.editPlayerList.onClick = function(widget)\n        autoPartyListWindow:show()\n        autoPartyListWindow:raise()\n        autoPartyListWindow:focus()\n    end\n\n    autopartyui.ptShare.onClick = function(widget)\n        g_game.partyShareExperience(not player:isPartySharedExperienceActive())\n    end\n\n    autopartyui.ptLeave.onClick = function(widget)\n        g_game.partyLeave()\n    end\n\n    autoPartyListWindow.closeButton.onClick = function(widget)\n        autoPartyListWindow:hide()\n    end\n\n    if storage[panelName].autoPartyList and #storage[panelName].autoPartyList > 0 then\n        for _, pName in ipairs(storage[panelName].autoPartyList) do\n            local label = g_ui.createWidget(\"AutoPartyName\", autoPartyListWindow.lstAutoParty)\n            label.remove.onClick = function(widget)\n                table.removevalue(storage[panelName].autoPartyList, label:getText())\n                label:destroy()\n            end\n            label:setText(pName)\n        end\n    end\n    autoPartyListWindow.addPlayer.onClick = function(widget)\n        local playerName = autoPartyListWindow.playerName:getText()\n        if playerName:len() > 0 and not (table.contains(storage[panelName].autoPartyList, playerName, true)\n                or storage[panelName].leaderName == playerName) then\n            table.insert(storage[panelName].autoPartyList, playerName)\n            local label = g_ui.createWidget(\"AutoPartyName\", autoPartyListWindow.lstAutoParty)\n            label.remove.onClick = function(widget)\n                table.removevalue(storage[panelName].autoPartyList, label:getText())\n                label:destroy()\n            end\n            label:setText(playerName)\n            autoPartyListWindow.playerName:setText('')\n        end\n    end\n\n    autopartyui.status:setOn(storage[panelName].enabled)\n    autopartyui.status.onClick = function(widget)\n        storage[panelName].enabled = not storage[panelName].enabled\n        widget:setOn(storage[panelName].enabled)\n    end\n\n    autoPartyListWindow.creatureMove:setChecked(storage[panelName].onMove)\n    autoPartyListWindow.creatureMove.onClick = function(widget)\n        storage[panelName].onMove = not storage[panelName].onMove\n        widget:setChecked(storage[panelName].onMove)\n    end\n\n    autoPartyListWindow.playerName.onKeyPress = function(self, keyCode, keyboardModifiers)\n        if not (keyCode == 5) then\n            return false\n        end\n        autoPartyListWindow.addPlayer.onClick()\n        return true\n    end\n\n    autoPartyListWindow.playerName.onTextChange = function(widget, text)\n        if table.contains(storage[panelName].autoPartyList, text, true) then\n            autoPartyListWindow.addPlayer:setColor(\"#FF0000\")\n        else\n            autoPartyListWindow.addPlayer:setColor(\"#FFFFFF\")\n        end\n    end\n\n    autoPartyListWindow.txtLeader.onTextChange = function(widget, text)\n        storage[panelName].leaderName = text\n    end\n    autoPartyListWindow.txtLeader:setText(storage[panelName].leaderName)\n\n    onTextMessage(function(mode, text)\n        if tcAutoParty:isOn() then\n            if mode == 20 then\n                if text:find(\"has joined the party\") then\n                    local data = regexMatch(text, \"([a-z A-Z-]*) has joined the party\")[1][2]\n                    if data then\n                        if table.contains(storage[panelName].autoPartyList, data, true) then\n                            if not player:isPartySharedExperienceActive() then\n                                g_game.partyShareExperience(true)\n                            end\n                        end\n                    end\n                elseif text:find(\"has invited you\") then\n                    if player:getName():lower() == storage[panelName].leaderName:lower() then\n                        return\n                    end\n                    local data = regexMatch(text, \"([a-z A-Z-]*) has invited you\")[1][2]\n                    if data then\n                        if storage[panelName].leaderName:lower() == data:lower() then\n                            local leader = getCreatureByName(data, true)\n                            if leader then\n                                g_game.partyJoin(leader:getId())\n                                return\n                            end\n                        end\n                    end\n                end\n            end\n        end\n    end)\n\n    function creatureInvites(creature)\n        if not creature:isPlayer() or creature == player then return end\n        if creature:getName():lower() == storage[panelName].leaderName:lower() then\n            if creature:getShield() == 1 then\n                g_game.partyJoin(creature:getId())\n                return\n            end\n        end\n        if player:getName():lower() ~= storage[panelName].leaderName:lower() then return end\n        if not table.contains(storage[panelName].autoPartyList, creature:getName(), true) then return end\n        if creature:isPartyMember() or creature:getShield() == 2 then return end\n        g_game.partyInvite(creature:getId())\n    end\n\n    onCreatureAppear(function(creature)\n        if tcAutoParty:isOn() then\n            creatureInvites(creature)\n        end\n    end)\n    onCreaturePositionChange(function(creature, newPos, oldPos)\n        if tcAutoParty:isOn() and storage[panelName].onMove then\n            creatureInvites(creature)\n        end\n    end)\nend\n\n\n\nmacro(5000, \"STAMINA\", function()\n    if stamina() < 2400 then\n        use(12036)\ndelay(5000)\n    end\nend)\n\n\n\n\n\n\nlocal uiExpPerHour = setupUI([[\nPanel\n  size: 1 1\n  anchors.left: parent.left\n  anchors.top: prev.top\n  margin-left: 3\n  margin-top: 80\n  Label\n    id: ExpPerHour\n    color: green\n    font: verdana-9px-bold\n    height: 9\n    text-auto-resize: true\n    !text: tr('0.00 LVL/H')\n]], modules.game_interface.getMapPanel())\n\nlocal maxGainsCount = 30\nlocal expGains = {}\nlocal gain = 0\nlocal lastLvl = player:getLevel()\nlocal lastLvlPercent = player:getLevelPercent()\nlvlPerHourName = \"lvlPerHour\"\nif not storage[lvlPerHourName] then storage[lvlPerHourName] = { value = 0 } end\n\nmacro(30*1000, function()\n    lvlPercent = player:getLevelPercent()\n    lvlPercentGain = (lvlPercent - lastLvlPercent + 100) % 100\n    local lvl = player:getLevel()\n    lvlGain = lvl - lastLvl\n\n    gain = lvlPercentGain / 100\n    if lvlGain > 1 then\n        gain = gain + lvlGain - 1\n    end\n    lastLvl = lvl\n    lastLvlPercent = lvlPercent\n\n    table.insert(expGains, 1, gain)\n    if table.getn(expGains) > maxGainsCount then\n        table.remove(expGains)\n    end\n    sum = 0\n    for _, v in pairs(expGains) do\n        sum = sum + v\n    end\n    lph = 2 * 60 * sum / table.getn(expGains)\n    storage[lvlPerHourName].value = lph\n    uiExpPerHour.ExpPerHour:setText(string.format(\"%.2f\", lph) .. ' LVL/H')\nend)\n\n\n\n\n\n\n\n",
+  "healspell": "utevo lux",
+  "BotServerChannel": "DEJOWNIAAA",
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "attackItemEnabled": false,
+    "onShootEnabled": false,
+    "item": 3155,
+    "serverLeaderTarget": false,
+    "onCastEnabled": false,
+    "commandsEnabled": true,
+    "attack": "",
+    "onSayEnabled": false,
+    "sayLeader": "",
+    "spell": "",
+    "shootLeader": "",
+    "attackItemToggle": false,
+    "followLeaderEnabled": false,
+    "serverEnabled": false,
+    "sayPhrase": "",
+    "serverTriggers": true,
+    "serverLeader": "",
+    "enabled": false,
+    "follow": "",
+    "castLeader": ""
+  },
+  "extras": {
+    "rope": 3003,
+    "bless": true,
+    "pathfinding": true,
+    "machete": 3308,
+    "separatePm": false,
+    "highlightTarget": true,
+    "gotoMaxDistance": 50,
+    "holdWgHot": "*",
+    "holdMwall": true,
+    "checkPlayer": false,
+    "looting": 10,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "/",
+    "nextBackpack": true,
+    "shovel": 9596,
+    "lootDelay": 1,
+    "title": true,
+    "autoOpenDoors": true,
+    "stake": false,
+    "scythe": 9596,
+    "oberon": true,
+    "huntRoutes": 300,
+    "antiKick": true,
+    "talkDelay": 1000,
+    "reachable": false,
+    "killUnder": 1,
+    "reUse": false,
+    "height": 360,
+    "timers": true
+  },
+  "_macros": {
+    "": false,
+    "Follow Change": false,
+    "Rainbow Outfit": false,
+    "AntiRS & Msg": false,
+    "Pot": false,
+    "friend OS": false,
+    "expboost": false,
+    "Auto Haste": false,
+    "Hold Target": false,
+    "PvE Speller": false,
+    "MANA FRIEND": false,
+    "MR": false,
+    "task level": false,
+    "Auto Manashield": false,
+    "FWB": false,
+    "Cast Food": false,
+    "mwall step": false,
+    "PARAL BLACH": false,
+    "Anty Paral": false,
+    "Exeta": false,
+    "CAVE OFF IF LOW CC": false,
+    "FairyColors": false,
+    "Enable": false,
+    "Healing Spell": false,
+    "XLOG 8PPLS": false,
+    "Pot1": true,
+    "Antipush": false,
+    "Cut Wild Growth": false,
+    "Follow": false,
+    "Lure+5monsters,Off,if0": false,
+    "Keep SSA&Might": false,
+    "STAMINA": true,
+    "Eat Food": false,
+    "mwall on target": false,
+    "Fast attack": false,
+    "JOHN PAUL SECOND": true,
+    "sayutanavid": false,
+    "Depot Withdraw": false,
+    "task maxpoints": false,
+    "RainbowOutfit": false,
+    "sayue": false,
+    "Send message on trade": true,
+    "Energy RING": false,
+    "Bug Map": false,
+    "Dance": false,
+    "Sio Friend": true,
+    "Outfiter": false,
+    "Firewalk Enchanter": false,
+    "RandomOutfit": false,
+    "Mana Pot": false,
+    "multi target spell": true,
+    "Anti Push": false,
+    "CaveBot start/stop": false,
+    "ON/OFF": false,
+    "POTOWANIE KOGOS": false,
+    "Exchange money": false,
+    "bless": false,
+    "SOFTY": false,
+    "STAMINA DOLL": false
+  },
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ],
+  "dropper": {
+    "enabled": false,
+    "trashItems": [
+      {
+        "id": 8012,
+        "count": 1
+      }
+    ],
+    "useItems": [
+      {
+        "count": 1,
+        "id": 21203
+      },
+      {
+        "count": 1,
+        "id": 14758
+      }
+    ],
+    "capItems": [
+      {
+        "id": 3428,
+        "count": 1
+      }
+    ]
+  },
+  "lvlPerHour": {
+    "value": 112.8
+  },
+  "quiverManager": {
+    "arrows": false,
+    "boltsId": 35849,
+    "arrowsId": 35848,
+    "bolts": false
+  },
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "tcLastExiva": {
+    "name": "",
+    "timer": 1
+  },
+  "cavebotSell": [
+
+  ],
+  "bestHit": 2180,
+  "targetName": "Player Name",
+  "EquipperPanel": {
+    "enabled": false,
+    "bosses": [
+
+    ],
+    "rules": [
+      {
+        "mainCondition": 4,
+        "visible": true,
+        "relation": "or",
+        "optionalCondition": 12,
+        "mainValue": 60,
+        "optValue": 1,
+        "enabled": true,
+        "name": "e ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3051,
+          0
+        ]
+      },
+      {
+        "mainCondition": 5,
+        "visible": true,
+        "relation": "or",
+        "optionalCondition": 13,
+        "mainValue": 60,
+        "optValue": 2,
+        "enabled": true,
+        "name": "ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3004,
+          0
+        ]
+      },
+      {
+        "mainCondition": 1,
+        "optionalCondition": 2,
+        "relation": "-",
+        "visible": true,
+        "enabled": false,
+        "name": "ssy mr",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          3081,
+          0,
+          0,
+          3048,
+          0
+        ]
+      },
+      {
+        "relation": "-",
+        "mainCondition": 4,
+        "optionalCondition": 5,
+        "mainValue": 90,
+        "visible": true,
+        "enabled": false,
+        "name": "death ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6299,
+          0
+        ]
+      },
+      {
+        "relation": "-",
+        "mainCondition": 7,
+        "optionalCondition": 8,
+        "mainValue": 90,
+        "visible": true,
+        "enabled": false,
+        "name": "time ring",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3053,
+          0
+        ]
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3048,
+          0
+        ],
+        "mainCondition": 6,
+        "optionalCondition": 7,
+        "visible": true,
+        "mainValue": 80,
+        "enabled": false,
+        "name": "might ring",
+        "relation": "-"
+      }
+    ]
+  },
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "groupMembers": true,
+    "marks": false,
+    "highlight": false,
+    "blackList": [
+
+    ],
+    "friendList": [
+      "Dey",
+      "Parkowy",
+      "Anzo International",
+      "Yededaya Sawyer",
+      "Gnojownica",
+      "Bog Gry",
+      "Zejadz Mnie",
+      "Natalie Wayne",
+      "Dxx",
+      "Paralotniarz",
+      "Jaggmar",
+      "Przyszykuj Kadzidlo",
+      "Fuhgeddaboudlt",
+      "Draku Pvp",
+      "Opera",
+      "Zajedz Mnie",
+      "Exxeexxexxeexxeexxee",
+      "KOMOSIAK",
+      "Ten Ms Was Zarucha",
+      "Npc Gameplay",
+      "Waldeymar Kasti",
+      "B",
+      "Poatan'ed",
+      "Demlox",
+      "Montello",
+      "HUSZCZA TIBIAGOD",
+      "Lagertha",
+      "Moon",
+      "Buszek",
+      "Humanoid",
+      "Exori San",
+      "Bagienny",
+      "MEDICO",
+      "RUSKI",
+      "Necro",
+      "Fezs Ywis",
+      "Fuhgeddaboudit"
+    ]
+  },
+  "moneyItems": [
+    {
+      "id": 3031,
+      "count": 1
+    },
+    {
+      "id": 3035,
+      "count": 1
+    }
+  ],
+  "_icons": {
+    "Utito": {
+      "y": 0.55716004813478,
+      "x": 0.86388059701493,
+      "enabled": false
+    },
+    "Keep SSA/Might": {
+      "y": 0.28505214368482,
+      "x": 0.9289552238806,
+      "enabled": false
+    },
+    "SSA": {
+      "y": 0.50183598531212,
+      "x": 0.86567164179104,
+      "enabled": true
+    },
+    "exivalast": {
+      "y": 0.25,
+      "x": 0.11,
+      "enabled": false
+    },
+    "PARALBLACH": {
+      "y": 0.59778597785978,
+      "x": 0.86149253731343,
+      "enabled": false
+    },
+    "ZBIERACZKA": {
+      "y": 0.29620563035496,
+      "x": 0.86507462686567,
+      "enabled": false
+    },
+    "Anti": {
+      "y": 0.25,
+      "x": 0.01,
+      "enabled": false
+    },
+    "exivatarget": {
+      "y": 0.05,
+      "x": 0.11,
+      "enabled": false
+    },
+    "MR": {
+      "y": 0.46756425948592,
+      "x": 0.86626865671642,
+      "enabled": false
+    },
+    "Bug Map": {
+      "y": 0.01021711366539,
+      "x": 0.99761194029851,
+      "enabled": false
+    },
+    "Zbieracz": {
+      "y": 0.45,
+      "x": 0.01,
+      "enabled": false
+    },
+    "Dash": {
+      "y": 0.01468788249694,
+      "x": 0.99462686567164,
+      "enabled": false
+    },
+    "UE": {
+      "y": 0.16475095785441,
+      "x": 0.88477611940299,
+      "enabled": false
+    },
+    "haste": {
+      "y": 0.65,
+      "x": 0.01,
+      "enabled": false
+    },
+    "utamo vita": {
+      "y": 0.05,
+      "x": 0.01,
+      "enabled": false
+    },
+    "ON/OFF": {
+      "y": 0.15667074663403,
+      "x": 0.86388059701493,
+      "enabled": false
+    },
+    "DRAKUCWEL": {
+      "y": 0.17879948914432,
+      "x": 0.86985074626866,
+      "enabled": false
+    },
+    "START/STOP": {
+      "y": 0.15789473684211,
+      "x": 0.89671641791045,
+      "enabled": false
+    },
+    "Maczeta": {
+      "y": 0.45,
+      "x": 0.11,
+      "enabled": false
+    },
+    "leczenie": {
+      "y": 0.85,
+      "x": 0.01,
+      "enabled": false
+    },
+    "GMP": {
+      "y": 0.22888616891065,
+      "x": 0.85970149253731,
+      "enabled": false
+    }
+  },
+  "bestHeal": 8510,
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "pushmax": {
+    "pushMaxRuneId": 3192,
+    "mwallBlockId": 2129,
+    "pushDelay": 2100,
+    "enabled": false,
+    "pushMaxKey": "F2"
+  },
+  "autofollow": {
+    "player": "Rybak"
+  },
+  "manapot": "237",
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "alarms": {
+    "privateMsg": {
+      "enabled": true
+    },
+    "flashClient": [
+
+    ],
+    "creatureDetected": [
+
+    ],
+    "playerDetectedLogout": false,
+    "playerAttack": {
+      "enabled": false
+    },
+    "manaBelow": false,
+    "warnBoss": false,
+    "customMessage": {
+      "value": "",
+      "enabled": false
+    },
+    "creatureName": {
+      "value": ""
+    },
+    "healthBelow": false,
+    "lowMana": {
+      "enabled": false,
+      "value": 100
+    },
+    "privateMessage": false,
+    "damageTaken": [
+
+    ],
+    "manaValue": 50,
+    "playerDetected": {
+      "enabled": true
+    },
+    "ignoreFriends": {
+      "enabled": true
+    },
+    "defaultMsg": [
+
+    ],
+    "messageText": "",
+    "bossName": "[B]",
+    "enabled": false,
+    "lowHealth": {
+      "enabled": true,
+      "value": 20
+    },
+    "healthValue": 40
+  },
+  "belowmana": "95",
+  "antiparaspell": "utani gran hur",
+  "renameContainers": {
+    "sort": true,
+    "forceOpen": true,
+    "list": [
+      {
+        "items": [
+
+        ],
+        "value": "MAIN",
+        "enabled": true,
+        "min": true,
+        "item": 8860
+      },
+      {
+        "items": [
+          {
+            "id": 3386,
+            "count": 1
+          },
+          {
+            "id": 3392,
+            "count": 1
+          },
+          {
+            "id": 3004,
+            "count": 1
+          }
+        ],
+        "value": "LOOT",
+        "enabled": true,
+        "min": true,
+        "item": 9602
+      },
+      {
+        "items": [
+          {
+            "id": 238,
+            "count": 100
+          }
+        ],
+        "value": "SUPPLE",
+        "enabled": true,
+        "min": true,
+        "item": 2854
+      },
+      {
+        "items": [
+          {
+            "id": 3043,
+            "count": 100
+          }
+        ],
+        "value": "GOLD",
+        "enabled": true,
+        "min": true,
+        "item": 2869
+      }
+    ],
+    "purse": false,
+    "enabled": false,
+    "height": 170
+  },
+  "_configs": {
+    "targetbot_configs": {
+      "selected": "dsa",
+      "enabled": false
+    },
+    "cavebot_configs": {
+      "selected": "xxx",
+      "enabled": true
+    }
+  },
+  "foodItems": [
+    {
+      "count": 1,
+      "id": 3582
+    },
+    {
+      "count": 1,
+      "id": 3577
+    },
+    {
+      "count": 1,
+      "id": 3607
+    },
+    {
+      "count": 1,
+      "id": 3585
+    },
+    {
+      "count": 1,
+      "id": 3592
+    },
+    {
+      "count": 1,
+      "id": 3600
+    },
+    {
+      "count": 1,
+      "id": 3601
+    },
+    {
+      "count": 1,
+      "id": 3583
+    },
+    {
+      "count": 1,
+      "id": 3732
+    },
+    {
+      "count": 1,
+      "id": 6526
+    },
+    {
+      "count": 1,
+      "id": 3725
+    }
+  ]
+}

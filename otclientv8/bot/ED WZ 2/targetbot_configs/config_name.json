@@ -1,0 +1,144 @@
+{
+  "looting": {
+    "items": [
+
+    ],
+    "maxDanger": 10,
+    "minCapacity": 100,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2866
+      },
+      {
+        "count": 1,
+        "id": 2867
+      },
+      {
+        "count": 1,
+        "id": 2865
+      },
+      {
+        "count": 1,
+        "id": 7342
+      },
+      {
+        "count": 1,
+        "id": 9602
+      },
+      {
+        "count": 1,
+        "id": 2869
+      },
+      {
+        "count": 1,
+        "id": 21411
+      },
+      {
+        "count": 1,
+        "id": 5949
+      },
+      {
+        "count": 1,
+        "id": 2871
+      },
+      {
+        "count": 1,
+        "id": 8860
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 300,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 30,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 1,
+      "name": "Cobra Assassin, Cobra Scout, Cobra Vizier",
+      "keepDistance": true,
+      "keepDistanceRange": 4,
+      "dynamicLureDelay": true,
+      "danger": 1,
+      "delayFrom": 3,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 1,
+      "rePosition": false,
+      "dynamicLure": true,
+      "regex": "^cobra assassin$|^cobra scout$|^cobra vizier$"
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "rpSafe": false,
+      "chase": true,
+      "priority": 6,
+      "name": "Cobra",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "dynamicLureDelay": false,
+      "danger": 1,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": false,
+      "regex": "^cobra$"
+    },
+    {
+      "lureDelay": 590,
+      "lureMin": 29,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 4,
+      "lureMax": 30,
+      "regex": "^deepworm$",
+      "chase": false,
+      "priority": 1,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": true,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 1,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "Deepworm",
+      "rpSafe": false
+    }
+  ]
+}

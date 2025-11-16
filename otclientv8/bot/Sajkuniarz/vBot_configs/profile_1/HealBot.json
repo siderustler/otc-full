@@ -1,0 +1,197 @@
+{
+  "ConditionPanel": {
+    "cureBurn": false,
+    "curseCost": 80,
+    "electrifyCost": 22,
+    "ignoreInPz": false,
+    "bleedCost": 45,
+    "cureCurse": false,
+    "holdHaste": true,
+    "curePosion": false,
+    "hasteSpell": "utani gran hur",
+    "cureParalyse": false,
+    "stopHaste": false,
+    "cureBleed": false,
+    "holdUtura": false,
+    "paralyseSpell": "utani gran hur",
+    "utanaCost": 440,
+    "uturaType": "",
+    "poisonCost": 20,
+    "utamoCost": 1,
+    "enabled": false,
+    "uturaCost": 100,
+    "cureElectrify": false,
+    "holdUtamo": true,
+    "paralyseCost": 40,
+    "hasteCost": 100,
+    "holdUtana": false,
+    "burnCost": 30
+  },
+  "currentHealBotProfile": 1,
+  "healbot": [
+    {
+      "MessageDelay": false,
+      "Conditions": false,
+      "itemTable": [
+        {
+          "enabled": false,
+          "index": 1,
+          "origin": "MP%",
+          "item": 3181,
+          "value": 97,
+          "sign": "<"
+        },
+        {
+          "enabled": false,
+          "index": 2,
+          "origin": "MP%",
+          "item": 238,
+          "value": 80,
+          "sign": "<"
+        },
+        {
+          "sign": "<",
+          "value": 88,
+          "index": 3,
+          "item": 238,
+          "origin": "MP%",
+          "enabled": false
+        },
+        {
+          "sign": "<",
+          "value": 99,
+          "index": 4,
+          "item": 238,
+          "origin": "MP%",
+          "enabled": true
+        }
+      ],
+      "Delay": false,
+      "Visible": false,
+      "Cooldown": false,
+      "spellTable": [
+        {
+          "enabled": false,
+          "index": 1,
+          "origin": "HP%",
+          "spell": "exura vita",
+          "sign": "<",
+          "value": 98,
+          "cost": -1
+        },
+        {
+          "enabled": false,
+          "value": 75,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura vita",
+          "index": 2,
+          "cost": 1
+        },
+        {
+          "enabled": false,
+          "index": 3,
+          "origin": "HP%",
+          "spell": "exura gran mas res",
+          "sign": "<",
+          "value": 80,
+          "cost": 10
+        },
+        {
+          "enabled": false,
+          "value": 70,
+          "origin": "HP%",
+          "sign": "<",
+          "spell": "exura sio \"medson from arkadia",
+          "index": 4,
+          "cost": 140
+        },
+        {
+          "enabled": true,
+          "index": 6,
+          "origin": "HP%",
+          "spell": "exura vita",
+          "sign": "<",
+          "value": 70,
+          "cost": 70
+        },
+        {
+          "enabled": true,
+          "index": 5,
+          "origin": "HP%",
+          "spell": "exura gran",
+          "sign": "<",
+          "value": 93,
+          "cost": 60
+        }
+      ],
+      "enabled": false,
+      "name": "Profile #1",
+      "Interval": false
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #2",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #3",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #4",
+      "Interval": true
+    },
+    {
+      "MessageDelay": false,
+      "Conditions": true,
+      "itemTable": [
+
+      ],
+      "Delay": true,
+      "Visible": true,
+      "Cooldown": true,
+      "spellTable": [
+
+      ],
+      "enabled": false,
+      "name": "Profile #5",
+      "Interval": true
+    }
+  ]
+}

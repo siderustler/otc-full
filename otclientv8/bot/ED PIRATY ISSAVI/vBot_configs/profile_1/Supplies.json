@@ -1,0 +1,22 @@
+{
+  "supplies": {
+    "currentProfile": "Default",
+    "Default": {
+      "staminaSwitch": true,
+      "capValue": 0,
+      "staminaValue": "1000",
+      "items": {
+        "23373": {
+          "max": 400,
+          "min": 150,
+          "avg": 0
+        },
+        "3175": {
+          "max": 2000,
+          "min": 200,
+          "avg": 0
+        }
+      }
+    }
+  }
+}

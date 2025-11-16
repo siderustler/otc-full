@@ -1,0 +1,894 @@
+{
+  "BotServerChannel": "4813375462216",
+  "lvlPerHour": {
+    "value": 1.4
+  },
+  "extras": {
+    "rope": 9596,
+    "pathfinding": true,
+    "timers": true,
+    "machete": 9596,
+    "separatePm": false,
+    "reUse": false,
+    "gotoMaxDistance": 30,
+    "killUnder": 1,
+    "holdMwall": true,
+    "checkPlayer": true,
+    "looting": 40,
+    "suppliesControl": false,
+    "useAll": "space",
+    "joinBot": false,
+    "lootLast": true,
+    "holdMwHot": "F5",
+    "reachable": false,
+    "shovel": 9596,
+    "lootDelay": 200,
+    "talkDelay": 1000,
+    "autoOpenDoors": true,
+    "holdWgHot": "F6",
+    "nextBackpack": true,
+    "oberon": true,
+    "huntRoutes": 50,
+    "antiKick": true,
+    "title": true,
+    "scythe": 9596,
+    "stake": false,
+    "highlightTarget": true,
+    "height": 360,
+    "bless": true
+  },
+  "foodItems": [
+    {
+      "count": 1,
+      "id": 3582
+    },
+    {
+      "count": 1,
+      "id": 3577
+    },
+    {
+      "id": 3607,
+      "count": 1
+    },
+    {
+      "id": 3585,
+      "count": 1
+    },
+    {
+      "id": 3592,
+      "count": 1
+    },
+    {
+      "id": 3600,
+      "count": 1
+    },
+    {
+      "id": 3601,
+      "count": 1
+    }
+  ],
+  "specialDeposit": {
+    "height": 380,
+    "items": [
+
+    ]
+  },
+  "ingame_hotkeys": "macro(500, \"Exeta\",  function()\nlocal whitelist = {\"MOB NAME\"} --< NIE WPISUJE PRZY WYBRANYM MOBIE\nlocal isSafe = true;\n    local specAmount = 0\n    for i,mob in ipairs(getSpectators()) do\n        if (mob:isPlayer() and player:getName() ~= mob:getName() and not table.find(whitelist, mob:getName())) then\n            isSafe = false;\n        end\nif (getDistanceBetween(player:getPosition(), mob:getPosition())  <= 3 and mob:isMonster() and not table.find(whitelist, mob:getName())) then\n            specAmount = specAmount + 1\n        end\n    end\n    if (specAmount >= 1) then\n        say(\"exeta res\")\n        delay(1000)\n    end\nend)\n\n\nmacro(500,\"hasteonhp\", function()\n\nif player:getHealthPercent() > 70 and not hasHaste() then\n     cast(\"utani tempo hur\")\nend\n\nend)\n\n\nlocal healPercent = 100 -- % of hp to use rune above on friend\nlocal friendList = {\"Tarambuniarz\"} -- list of players to use rune on\n\nlocal minMana = 70 -- minimum mana % to uh friend\nlocal minHp = 40   -- minimum health % to uh friend\n\n-- script\n\nmacro(500, \"MANA FRIEND\", function()\n    for _, spec in pairs(getSpectators()) do\n        if table.find(friendList, spec:getName()) and hppercent() >= minHp and manapercent() >= minMana then\n            if spec:getHealthPercent() <= healPercent and getDistanceBetween(player:getPosition(), spec:getPosition()) == 1 then\n                useWith(237, spec)\n            end\n        end\n    end\nend)\n\n\nlocal friendManaState = false\nlocal friendName = \"Tarambuniarz\"\n\nonScreen= macro(100,\"friend OS\", function()\n    local spectators = getSpectators(pos(), false)\n    for i, spec in pairs(spectators) do\n        if spec:getName() == friendName then\n          if getDistanceBetween(pos(), spec:getPosition()) < 5 and friendManaState then\n            return CaveBot.setOn()\n          end\n        end\n    end\n    return CaveBot.setOff()\nend)\n\n\nonTalk(function(name, level, mode, text, channelId, pos)\n    if name ~= \"Tarambuniarz\" then return end\n    if text == \"start\" then\n        friendManaState = true\n        CaveBot.setOn()\n    end\n    if text == \"stop\" then\n        friendManaState = false\n        CaveBot.setOff()\n    end\nend)\n\n\n--\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--          [[[[[[[[[[ MAX PUSH ]]]]]]]]]]\n--          [[[[[[[[[[[[[      ]]]]]]]]]]]]\n--\n\nlocal pushMaxState = {\n  tileTo = nil,\n  target = nil,\n  posFrom = nil,\n  state = 0,\n}\n\nlocal pushMaxCfg = {\n  pushDelay = 1030,\n  fieldId = 3197,\n}\n\nfunction resetPushMaxState()\n  if pushMaxState.posFrom then \n    g_map.getTile(pushMaxState.posFrom):setText('') \n  end\n  if pushMaxState.tileTo then \n    pushMaxState.tileTo:setText('') \n  end\n  pushMaxState.tileTo = nil\n  pushMaxState.posFrom = nil\n  pushMaxState.target = nil\n  pushMaxState.state = 0\nend\n\nfunction setState(tile)\n  if pushMaxState.state == 0 then\n    creature = tile:getCreatures() and tile:getCreatures()[1]\n    if creature and creature:isPlayer() then\n      pushMaxState.posFrom = creature:getPosition()\n      pushMaxState.target = creature\n      tile:setText('FROM')\n    else\n      tile:setText('NOT PLAYER')\n      return\n    end\n  end\n  if pushMaxState.state == 1 then\n    if not tile:isPathable() then \n      tile:setText('WRONG TILE') \n    end\n    pushMaxState.tileTo = tile\n    tile:setText('HERE')\n  end\n  pushMaxState.state = pushMaxState.state + 1\nend\n\n-- state manager\nonKeyPress(function(keys)\n  if keys:lower() == \"`\" then\n    if pushMaxState.state > 1 then\n      resetPushMaxState()\n      return\n    end\n    tile = getTileUnderCursor(mousePos)\n    setState(tile)\n  end\nend)\n\nonCreaturePositionChange(function(creature,newPos,oldPos)\n  if creature == player or creature == pushMaxState.target then \n    resetPushMaxState()\n    vBot.isUsing = false\n  end\nend)\n\n\n\n\n\n\nlocal switch = macro(75, \"Ultimate Follow:\", function(macro)\n    local target = getCreatureByName(storage.vithraxFollow)\n    local tpos = target and target:getPosition()\n\n    -- clear table, target is near you\n    if tpos and getDistanceBetween(tpos,pos()) < 2 then\n        movementHistory = {}\n        return\n    end\n    local dest = movementHistory[posz()]\n\n    -- position is not registered but target is on screen, so add it\n    if tpos and not dest then\n        local path = findPath(tpos, pos(), 20, { ignoreNonPathable = true, precision = 1 })\n        if path then\n            dest = tpos\n        end\n    end\n\n    -- no registered position on current floor, maybe falled into some hole\n    if not dest then\n        if useAll() then\n            return\n        end\n        delay(100)\n    end\n\n    -- reached position on current floor and still no target, maybe he ladder/rope or something\n    if dest and getDistanceBetween(dest, pos()) == 0 then\n        delay(100)\n        useAll()\n        return\n    end\n\n    local path = findPath(pos(), dest, 20, { ignoreNonPathable = true, precision = 1 })\n    if not path then\n        -- cant find a way to next waypoint, need to figure out some pathfinding option\n        useAll()\n        delay(100)\n        return\n    end\n\n    -- probably reachable\n    CaveBot.walkTo(dest, 20, { ignoreNonPathable = true, precision = target and 1 or 0 })\nend)\n\nUI.TextEdit(storage.vithraxFollow or 'Player Name', function(widget, newText)\n    storage.vithraxFollow = newText\nend)\n\nonCreaturePositionChange(function(creature, oldPos, newPos)\n    if switch.isOff() then return end\n    if not newPos then return end\n    if creature:getName():lower() ~= storage.vithraxFollow:lower():trim() then return end\n\n    -- register position on current floor\n    movementHistory[newPos.z] = newPos\nend)\n\n\n\nmacro(100, \"Attack Player\", function()\n  if not g_game.isAttacking() or not storage.targetName then\n  if getCreatureByName(storage.targetName) then\n  g_game.attack(getCreatureByName(storage.targetName))\n  end\n  end\n  end)\n\n  addLabel(\"targettext\", \"TargetName:\")\n  addTextEdit(\"followleader\", storage.targetName or \"Player Name\",\n  function(widget, text)    storage.targetName= text end)\n\n\n\n\nmacro(1000, \"Follow Target\", function()\n  if g_game.getChaseMode() ~= 1 then\n    g_game.setChaseMode(1)\n  end\nend)\n\n\n\n\nlocal panelName = \"autoParty\"\nlocal autopartyui = setupUI([[\nPanel\n  height: 38\n\n  BotSwitch\n    id: status\n    anchors.top: parent.top\n    anchors.left: parent.left\n    text-align: center\n    width: 130\n    height: 18\n    text: Auto Party\n\n  Button\n    id: editPlayerList\n    anchors.top: prev.top\n    anchors.left: prev.right\n    anchors.right: parent.right\n    margin-left: 3\n    height: 17\n    text: Setup\n\n  Button\n    id: ptLeave\n    text: Leave Party\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    width: 86\n    height: 17\n    margin-top: 3\n    color: #ee0000\n\n  Button\n    id: ptShare\n    text: Share XP\n    anchors.left: prev.right\n    anchors.top: prev.top\n    margin-left: 5\n    height: 17\n    width: 86\n\n  ]], parent)\n\ng_ui.loadUIFromString([[\nAutoPartyName < Label\n  background-color: alpha\n  text-offset: 2 0\n  focusable: true\n  height: 16\n\n  $focus:\n    background-color: #00000055\n\n  Button\n    id: remove\n    text: x\n    anchors.right: parent.right\n    margin-right: 15\n    width: 15\n    height: 15\n\nAutoPartyListWindow < MainWindow\n  text: Auto Party\n  size: 180 275\n  @onEscape: self:hide()\n\n  Label\n    id: lblLeader\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: parent.top\n    anchors.right: parent.right\n    text-align: center\n    text: Leader Name\n\n  TextEdit\n    id: txtLeader\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: prev.bottom\n    margin-top: 5\n\n  Label\n    id: lblParty\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    anchors.right: parent.right\n    margin-top: 5\n    text-align: center\n    text: Party List\n\n  TextList\n    id: lstAutoParty\n    anchors.top: prev.bottom\n    anchors.left: parent.left\n    anchors.right: parent.right\n    margin-top: 5\n    margin-bottom: 5\n    padding: 1\n    height: 83\n    vertical-scrollbar: AutoPartyListListScrollBar\n\n  VerticalScrollBar\n    id: AutoPartyListListScrollBar\n    anchors.top: lstAutoParty.top\n    anchors.bottom: lstAutoParty.bottom\n    anchors.right: lstAutoParty.right\n    step: 14\n    pixels-scroll: true\n\n  TextEdit\n    id: playerName\n    anchors.left: parent.left\n    anchors.top: lstAutoParty.bottom\n    margin-top: 5\n    width: 120\n\n  Button\n    id: addPlayer\n    text: +\n    anchors.right: parent.right\n    anchors.left: prev.right\n    anchors.top: prev.top\n    margin-left: 3\n\n  HorizontalSeparator\n    id: separator\n    anchors.right: parent.right\n    anchors.left: parent.left\n    anchors.top: prev.bottom\n    margin-top: 8\n\n  CheckBox\n    id: creatureMove\n    anchors.left: parent.left\n    anchors.right: parent.right\n    anchors.top: prev.bottom\n    margin-top: 6\n    text: Invite on move\n    tooltip: This will activate the invite on player move.\n\n  HorizontalSeparator\n    id: separator\n    anchors.right: parent.right\n    anchors.left: parent.left\n    anchors.bottom: closeButton.top\n    margin-bottom: 8\n\n  Button\n    id: closeButton\n    text: Close\n    font: cipsoftFont\n    anchors.right: parent.right\n    anchors.bottom: parent.bottom\n    size: 45 21\n]])\n\nif not storage[panelName] then\n    storage[panelName] = {\n        leaderName = 'Leader',\n        autoPartyList = {},\n        enabled = true,\n    }\nend\n\nif not storage[panelName].onMove then\n    storage[panelName].onMove = false\nend\nrootWidget = g_ui.getRootWidget()\nif rootWidget then\n    tcAutoParty = autopartyui.status\n\n    autoPartyListWindow = UI.createWindow('AutoPartyListWindow', rootWidget)\n    autoPartyListWindow:hide()\n\n    autopartyui.editPlayerList.onClick = function(widget)\n        autoPartyListWindow:show()\n        autoPartyListWindow:raise()\n        autoPartyListWindow:focus()\n    end\n\n    autopartyui.ptShare.onClick = function(widget)\n        g_game.partyShareExperience(not player:isPartySharedExperienceActive())\n    end\n\n    autopartyui.ptLeave.onClick = function(widget)\n        g_game.partyLeave()\n    end\n\n    autoPartyListWindow.closeButton.onClick = function(widget)\n        autoPartyListWindow:hide()\n    end\n\n    if storage[panelName].autoPartyList and #storage[panelName].autoPartyList > 0 then\n        for _, pName in ipairs(storage[panelName].autoPartyList) do\n            local label = g_ui.createWidget(\"AutoPartyName\", autoPartyListWindow.lstAutoParty)\n            label.remove.onClick = function(widget)\n                table.removevalue(storage[panelName].autoPartyList, label:getText())\n                label:destroy()\n            end\n            label:setText(pName)\n        end\n    end\n    autoPartyListWindow.addPlayer.onClick = function(widget)\n        local playerName = autoPartyListWindow.playerName:getText()\n        if playerName:len() > 0 and not (table.contains(storage[panelName].autoPartyList, playerName, true)\n                or storage[panelName].leaderName == playerName) then\n            table.insert(storage[panelName].autoPartyList, playerName)\n            local label = g_ui.createWidget(\"AutoPartyName\", autoPartyListWindow.lstAutoParty)\n            label.remove.onClick = function(widget)\n                table.removevalue(storage[panelName].autoPartyList, label:getText())\n                label:destroy()\n            end\n            label:setText(playerName)\n            autoPartyListWindow.playerName:setText('')\n        end\n    end\n\n    autopartyui.status:setOn(storage[panelName].enabled)\n    autopartyui.status.onClick = function(widget)\n        storage[panelName].enabled = not storage[panelName].enabled\n        widget:setOn(storage[panelName].enabled)\n    end\n\n    autoPartyListWindow.creatureMove:setChecked(storage[panelName].onMove)\n    autoPartyListWindow.creatureMove.onClick = function(widget)\n        storage[panelName].onMove = not storage[panelName].onMove\n        widget:setChecked(storage[panelName].onMove)\n    end\n\n    autoPartyListWindow.playerName.onKeyPress = function(self, keyCode, keyboardModifiers)\n        if not (keyCode == 5) then\n            return false\n        end\n        autoPartyListWindow.addPlayer.onClick()\n        return true\n    end\n\n    autoPartyListWindow.playerName.onTextChange = function(widget, text)\n        if table.contains(storage[panelName].autoPartyList, text, true) then\n            autoPartyListWindow.addPlayer:setColor(\"#FF0000\")\n        else\n            autoPartyListWindow.addPlayer:setColor(\"#FFFFFF\")\n        end\n    end\n\n    autoPartyListWindow.txtLeader.onTextChange = function(widget, text)\n        storage[panelName].leaderName = text\n    end\n    autoPartyListWindow.txtLeader:setText(storage[panelName].leaderName)\n\n    onTextMessage(function(mode, text)\n        if tcAutoParty:isOn() then\n            if mode == 20 then\n                if text:find(\"has joined the party\") then\n                    local data = regexMatch(text, \"([a-z A-Z-]*) has joined the party\")[1][2]\n                    if data then\n                        if table.contains(storage[panelName].autoPartyList, data, true) then\n                            if not player:isPartySharedExperienceActive() then\n                                g_game.partyShareExperience(true)\n                            end\n                        end\n                    end\n                elseif text:find(\"has invited you\") then\n                    if player:getName():lower() == storage[panelName].leaderName:lower() then\n                        return\n                    end\n                    local data = regexMatch(text, \"([a-z A-Z-]*) has invited you\")[1][2]\n                    if data then\n                        if storage[panelName].leaderName:lower() == data:lower() then\n                            local leader = getCreatureByName(data, true)\n                            if leader then\n                                g_game.partyJoin(leader:getId())\n                                return\n                            end\n                        end\n                    end\n                end\n            end\n        end\n    end)\n\n    function creatureInvites(creature)\n        if not creature:isPlayer() or creature == player then return end\n        if creature:getName():lower() == storage[panelName].leaderName:lower() then\n            if creature:getShield() == 1 then\n                g_game.partyJoin(creature:getId())\n                return\n            end\n        end\n        if player:getName():lower() ~= storage[panelName].leaderName:lower() then return end\n        if not table.contains(storage[panelName].autoPartyList, creature:getName(), true) then return end\n        if creature:isPartyMember() or creature:getShield() == 2 then return end\n        g_game.partyInvite(creature:getId())\n    end\n\n    onCreatureAppear(function(creature)\n        if tcAutoParty:isOn() then\n            creatureInvites(creature)\n        end\n    end)\n    onCreaturePositionChange(function(creature, newPos, oldPos)\n        if tcAutoParty:isOn() and storage[panelName].onMove then\n            creatureInvites(creature)\n        end\n    end)\nend\n\n\n\nmacro(5000, \"STAMINA\", function()\n    if stamina() < 2400 then\n        use(12036)\ndelay(5000)\n    end\nend)\n\n\n\nmacro(5000, \"POT\", function()\n    use(9145)\ndelay(5000)\nend)\n\n\n\n\n\n\nlocal uiExpPerHour = setupUI([[\nPanel\n  size: 1 1\n  anchors.left: parent.left\n  anchors.top: prev.top\n  margin-left: 3\n  margin-top: 80\n  Label\n    id: ExpPerHour\n    color: green\n    font: verdana-9px-bold\n    height: 9\n    text-auto-resize: true\n    !text: tr('0.00 LVL/H')\n]], modules.game_interface.getMapPanel())\n\nlocal maxGainsCount = 30\nlocal expGains = {}\nlocal gain = 0\nlocal lastLvl = player:getLevel()\nlocal lastLvlPercent = player:getLevelPercent()\nlvlPerHourName = \"lvlPerHour\"\nif not storage[lvlPerHourName] then storage[lvlPerHourName] = { value = 0 } end\n\nmacro(30*1000, function()\n    lvlPercent = player:getLevelPercent()\n    lvlPercentGain = (lvlPercent - lastLvlPercent + 100) % 100\n    local lvl = player:getLevel()\n    lvlGain = lvl - lastLvl\n\n    gain = lvlPercentGain / 100\n    if lvlGain > 1 then\n        gain = gain + lvlGain - 1\n    end\n    lastLvl = lvl\n    lastLvlPercent = lvlPercent\n\n    table.insert(expGains, 1, gain)\n    if table.getn(expGains) > maxGainsCount then\n        table.remove(expGains)\n    end\n    sum = 0\n    for _, v in pairs(expGains) do\n        sum = sum + v\n    end\n    lph = 2 * 60 * sum / table.getn(expGains)\n    storage[lvlPerHourName].value = lph\n    uiExpPerHour.ExpPerHour:setText(string.format(\"%.2f\", lph) .. ' LVL/H')\nend)\n\n\n\n\nmacro(100, \"UTITO\", function()\n    if player:getSkillLevel(3) > 115 then return end\n    cast(\"utito tempo\")\nend)\n\n\n\nmacro(100,\"targetowka\", function()\n  if not g_game.isAttacking() then return end\n  cast(\"exori hur max\")\nend)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "bestHeal": 0,
+  "combobot": {
+    "attackSpellEnabled": false,
+    "attackLeaderTargetEnabled": false,
+    "shootLeader": "",
+    "onCastEnabled": false,
+    "followLeaderEnabled": false,
+    "commandsEnabled": true,
+    "serverEnabled": false,
+    "onSayEnabled": false,
+    "attack": "",
+    "enabled": false,
+    "spell": "",
+    "onShootEnabled": false,
+    "attackItemToggle": false,
+    "serverTriggers": true,
+    "item": 3155,
+    "sayPhrase": "",
+    "serverLeaderTarget": false,
+    "serverLeader": "",
+    "sayLeader": "",
+    "follow": "",
+    "castLeader": ""
+  },
+  "caveBot": {
+    "backOffline": false,
+    "backTrainers": false,
+    "forceRefill": false,
+    "backStop": false
+  },
+  "analyzers": {
+    "lootChannel": true,
+    "customPrices": [
+
+    ],
+    "trackedLoot": [
+
+    ],
+    "trackedBoss": [
+
+    ],
+    "outfits": {
+      "Rezorian": {
+        "feet": 81,
+        "legs": 21,
+        "auxType": 0,
+        "type": 309,
+        "addons": 0,
+        "body": 96,
+        "head": 19
+      },
+      "Bober": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 541,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Fury": {
+        "feet": 0,
+        "type": 149,
+        "auxType": 0,
+        "legs": 96,
+        "addons": 3,
+        "body": 77,
+        "head": 94
+      },
+      "Massacre": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 244,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Sand Person": {
+        "feet": 50,
+        "legs": 40,
+        "auxType": 0,
+        "type": 480,
+        "addons": 0,
+        "body": 30,
+        "head": 20
+      },
+      "Premium Medusa": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 755,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Hellgorak": {
+        "feet": 81,
+        "legs": 21,
+        "body": 96,
+        "type": 12,
+        "auxType": 0,
+        "addons": 0,
+        "head": 19
+      },
+      "Kapitan Hak": {
+        "feet": 12,
+        "legs": 34,
+        "auxType": 0,
+        "type": 715,
+        "addons": 0,
+        "body": 122,
+        "head": 23
+      },
+      "Frost Dragon": {
+        "feet": 0,
+        "type": 248,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Cat": {
+        "feet": 0,
+        "type": 276,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Azerus": {
+        "feet": 81,
+        "legs": 21,
+        "addons": 0,
+        "type": 309,
+        "body": 96,
+        "auxType": 0,
+        "head": 19
+      },
+      "Lux": {
+        "feet": 114,
+        "legs": 105,
+        "auxType": 0,
+        "type": 531,
+        "addons": 3,
+        "body": 88,
+        "head": 79
+      },
+      "Bones": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 231,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Dog": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 32,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Premium Frost": {
+        "feet": 0,
+        "type": 533,
+        "body": 0,
+        "legs": 0,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Zugurosh": {
+        "feet": 91,
+        "legs": 57,
+        "body": 35,
+        "type": 12,
+        "auxType": 0,
+        "addons": 0,
+        "head": 2
+      },
+      "Pancernik": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 417,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Gargulec": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 744,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Sheldon": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 458,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Annihilon": {
+        "feet": 96,
+        "legs": 96,
+        "auxType": 0,
+        "type": 12,
+        "addons": 0,
+        "body": 104,
+        "head": 19
+      },
+      "Kosiarz Umyslow": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 406,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Dragon": {
+        "feet": 0,
+        "type": 34,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Crystalslice": {
+        "feet": 114,
+        "legs": 91,
+        "auxType": 0,
+        "type": 519,
+        "addons": 3,
+        "body": 83,
+        "head": 77
+      },
+      "Firey Flame": {
+        "feet": 0,
+        "legs": 96,
+        "auxType": 0,
+        "type": 548,
+        "addons": 3,
+        "body": 77,
+        "head": 94
+      },
+      "Apocalypse": {
+        "feet": 94,
+        "legs": 0,
+        "body": 114,
+        "type": 384,
+        "auxType": 0,
+        "addons": 0,
+        "head": 38
+      },
+      "Undertaker": {
+        "feet": 79,
+        "legs": 79,
+        "body": 94,
+        "type": 947,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Orshabaal": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 201,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Ferumbras": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 229,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Robin Hood": {
+        "feet": 50,
+        "legs": 40,
+        "auxType": 0,
+        "type": 706,
+        "addons": 0,
+        "body": 30,
+        "head": 20
+      },
+      "Destroyer": {
+        "feet": 0,
+        "type": 236,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Juggernaut": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 244,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Fazeczek": {
+        "feet": 82,
+        "legs": 128,
+        "auxType": 0,
+        "type": 134,
+        "addons": 0,
+        "body": 128,
+        "head": 82
+      },
+      "Hand of Cursed Fate": {
+        "feet": 0,
+        "type": 230,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Premium Dragon": {
+        "feet": 0,
+        "legs": 0,
+        "addons": 0,
+        "type": 826,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Warlock": {
+        "feet": 128,
+        "type": 130,
+        "auxType": 0,
+        "legs": 128,
+        "addons": 1,
+        "body": 71,
+        "head": 19
+      },
+      "Premium Hydra": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 395,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Rift Worm": {
+        "feet": 0,
+        "legs": 0,
+        "body": 0,
+        "type": 295,
+        "auxType": 0,
+        "addons": 0,
+        "head": 0
+      },
+      "Rotworm": {
+        "feet": 0,
+        "type": 26,
+        "auxType": 0,
+        "legs": 0,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Demon": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 35,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Fire Elemental": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 49,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      },
+      "Bakragore": {
+        "feet": 94,
+        "legs": 97,
+        "auxType": 0,
+        "type": 948,
+        "addons": 0,
+        "body": 123,
+        "head": 0
+      },
+      "Hellspawn": {
+        "feet": 0,
+        "legs": 0,
+        "addons": 0,
+        "type": 322,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Shogun": {
+        "feet": 95,
+        "legs": 120,
+        "auxType": 0,
+        "type": 12,
+        "addons": 0,
+        "body": 82,
+        "head": 0
+      },
+      "Who's Back": {
+        "feet": 88,
+        "legs": 114,
+        "auxType": 0,
+        "type": 278,
+        "addons": 0,
+        "body": 114,
+        "head": 88
+      },
+      "Dark Torturer": {
+        "feet": 0,
+        "type": 234,
+        "addons": 0,
+        "legs": 0,
+        "body": 0,
+        "auxType": 0,
+        "head": 0
+      },
+      "Gmzrobilwbambuko": {
+        "feet": 114,
+        "legs": 57,
+        "body": 118,
+        "type": 130,
+        "auxType": 0,
+        "addons": 0,
+        "head": 38
+      },
+      "Stivicwelu": {
+        "feet": 114,
+        "type": 955,
+        "addons": 3,
+        "legs": 0,
+        "body": 114,
+        "auxType": 0,
+        "head": 114
+      },
+      "Ushuriel": {
+        "feet": 112,
+        "legs": 19,
+        "addons": 0,
+        "type": 12,
+        "body": 95,
+        "auxType": 0,
+        "head": 0
+      },
+      "Premium Demon": {
+        "feet": 0,
+        "legs": 0,
+        "auxType": 0,
+        "type": 479,
+        "addons": 0,
+        "body": 0,
+        "head": 0
+      }
+    },
+    "rarityFrames": true
+  },
+  "cavebotSell": [
+    {
+      "count": 1,
+      "id": 23544
+    },
+    {
+      "count": 1,
+      "id": 3081
+    }
+  ],
+  "bestHit": 0,
+  "renameContainers": {
+    "purse": true,
+    "enabled": false,
+    "height": 170,
+    "list": [
+      {
+        "items": [
+          3081,
+          3048
+        ],
+        "value": "Main Backpack",
+        "item": 9601,
+        "min": false,
+        "enabled": true
+      },
+      {
+        "items": [
+          3161,
+          3180
+        ],
+        "value": "Runes",
+        "item": 2866,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+          3031,
+          3035,
+          3043
+        ],
+        "value": "Money",
+        "item": 2871,
+        "min": true,
+        "enabled": true
+      },
+      {
+        "items": [
+
+        ],
+        "value": "Purse",
+        "item": 23396,
+        "min": true,
+        "enabled": true
+      }
+    ]
+  },
+  "EquipperPanel": {
+    "bosses": [
+
+    ],
+    "enabled": false,
+    "rules": [
+
+    ]
+  },
+  "dropper": {
+    "enabled": false,
+    "trashItems": [
+      {
+        "count": 1,
+        "id": 283
+      },
+      {
+        "count": 1,
+        "id": 284
+      },
+      {
+        "count": 1,
+        "id": 285
+      }
+    ],
+    "useItems": [
+      {
+        "count": 1,
+        "id": 21203
+      },
+      {
+        "count": 1,
+        "id": 14758
+      }
+    ],
+    "capItems": [
+      {
+        "count": 1,
+        "id": 21175
+      }
+    ]
+  },
+  "targetName": "Player Name",
+  "_configs": {
+    "cavebot_configs": {
+      "enabled": false,
+      "selected": "rezoria_sandperson4"
+    },
+    "targetbot_configs": {
+      "selected": "all",
+      "enabled": true
+    }
+  },
+  "checkVersion": 1763204787,
+  "alarms": {
+    "privateMsg": [
+
+    ],
+    "customMessage": {
+      "value": ""
+    },
+    "flashClient": [
+
+    ],
+    "lowMana": {
+      "value": 20
+    },
+    "creatureDetected": [
+
+    ],
+    "damageTaken": [
+
+    ],
+    "playerAttack": [
+
+    ],
+    "ignoreFriends": [
+
+    ],
+    "defaultMsg": [
+
+    ],
+    "playerDetected": [
+
+    ],
+    "lowHealth": {
+      "value": 20
+    },
+    "creatureName": {
+      "value": ""
+    }
+  },
+  "vithraxFollow": "Who's Back",
+  "autoParty": {
+    "onMove": false,
+    "enabled": true,
+    "leaderName": "Leader",
+    "autoPartyList": [
+
+    ]
+  },
+  "pushmax": {
+    "pushMaxRuneId": 3188,
+    "mwallBlockId": 2128,
+    "pushDelay": 1060,
+    "enabled": true,
+    "pushMaxKey": "PageUp"
+  },
+  "_macros": {
+    "": false,
+    "Exeta": true,
+    "Ultimate Follow:": false,
+    "targetowka": false,
+    "STAMINA": true,
+    "UTITO": true,
+    "friend OS": false,
+    "POT": true
+  },
+  "BOTserver": {
+    "manaInfo": true,
+    "mwallInfo": true,
+    "mwalls": [
+
+    ],
+    "outfit": false,
+    "broadcasts": true,
+    "vocation": true
+  },
+  "moneyItems": [
+    {
+      "count": 1,
+      "id": 3031
+    },
+    {
+      "count": 1,
+      "id": 3035
+    }
+  ],
+  "playerList": {
+    "enemyList": [
+
+    ],
+    "outfits": false,
+    "groupMembers": true,
+    "friendList": [
+
+    ],
+    "highlight": false,
+    "marks": false,
+    "blackList": [
+
+    ]
+  },
+  "newHealer": {
+    "vocations": [
+
+    ],
+    "priorities": [
+      {
+        "custom": true,
+        "enabled": false,
+        "name": "Custom Spell"
+      },
+      {
+        "strong": true,
+        "enabled": true,
+        "name": "Exura Gran Sio"
+      },
+      {
+        "normal": true,
+        "enabled": true,
+        "name": "Exura Sio"
+      },
+      {
+        "enabled": true,
+        "name": "Exura Gran Mas Res",
+        "area": true
+      },
+      {
+        "health": true,
+        "enabled": true,
+        "name": "Health Item"
+      },
+      {
+        "enabled": true,
+        "name": "Mana Item",
+        "mana": true
+      }
+    ],
+    "enabled": false,
+    "groups": [
+
+    ],
+    "customPlayers": [
+
+    ],
+    "conditions": {
+      "druids": false,
+      "knights": true,
+      "friends": false,
+      "botserver": false,
+      "paladins": true,
+      "sorcerers": false,
+      "party": true,
+      "guild": false
+    },
+    "settings": [
+      {
+        "type": "HealItem",
+        "text": "Mana Item ",
+        "value": 268
+      },
+      {
+        "type": "HealScroll",
+        "text": "Item Range: ",
+        "value": 6
+      },
+      {
+        "type": "HealItem",
+        "text": "Health Item ",
+        "value": 3160
+      },
+      {
+        "type": "HealScroll",
+        "text": "Mas Res Players: ",
+        "value": 2
+      },
+      {
+        "type": "HealScroll",
+        "text": "Heal Friend at: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Use Gran Sio at: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Min Player HP%: ",
+        "value": 80
+      },
+      {
+        "type": "HealScroll",
+        "text": "Min Player MP%: ",
+        "value": 50
+      }
+    ]
+  },
+  "autoTradeMessage": "I'm using OTClientV8!",
+  "caveBotTasker": {
+    "max": 0,
+    "monster": "",
+    "inProgress": false,
+    "count": 0,
+    "taskName": ""
+  },
+  "autoEquip": [
+    {
+      "item1": 3052,
+      "title": "Auto Equip",
+      "item2": 3089,
+      "on": false,
+      "slot": 9
+    },
+    {
+      "item1": 0,
+      "title": "Auto Equip",
+      "item2": 0,
+      "on": false,
+      "slot": 0
+    }
+  ]
+}

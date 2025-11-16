@@ -1,0 +1,141 @@
+{
+  "looting": {
+    "items": [
+      {
+        "count": 1,
+        "id": 3392
+      },
+      {
+        "count": 1,
+        "id": 3386
+      },
+      {
+        "count": 1,
+        "id": 7386
+      },
+      {
+        "count": 1,
+        "id": 8074
+      },
+      {
+        "count": 1,
+        "id": 8052
+      },
+      {
+        "count": 1,
+        "id": 3369
+      },
+      {
+        "count": 1,
+        "id": 3381
+      },
+      {
+        "count": 1,
+        "id": 3428
+      },
+      {
+        "count": 1,
+        "id": 7456
+      },
+      {
+        "count": 1,
+        "id": 3079
+      },
+      {
+        "count": 1,
+        "id": 3436
+      },
+      {
+        "count": 1,
+        "id": 3370
+      },
+      {
+        "count": 0,
+        "id": 238
+      },
+      {
+        "count": 1,
+        "id": 7402
+      },
+      {
+        "count": 0,
+        "id": 3035
+      },
+      {
+        "count": 1,
+        "id": 3280
+      }
+    ],
+    "maxDanger": 5,
+    "minCapacity": 47,
+    "containers": [
+      {
+        "count": 1,
+        "id": 2867
+      }
+    ],
+    "everyItem": false
+  },
+  "targeting": [
+    {
+      "lureDelay": 100,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 1,
+      "regex": "^ioannes paulus secundo$",
+      "chase": true,
+      "priority": 10,
+      "keepDistance": false,
+      "closeLure": false,
+      "danger": 1,
+      "keepDistanceRange": 1,
+      "lure": false,
+      "dynamicLureDelay": false,
+      "dynamicLure": true,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "delayFrom": 2,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "name": "IOANNES PAULUS SECUNDO",
+      "rpSafe": false
+    },
+    {
+      "lureDelay": 250,
+      "lureMin": 1,
+      "maxDistance": 10,
+      "anchorRange": 3,
+      "lureCount": 1,
+      "avoidAttacks": false,
+      "rePositionAmount": 5,
+      "lureMax": 3,
+      "rpSafe": false,
+      "chase": false,
+      "priority": 0,
+      "name": "DRAGON LORD HATCHLING",
+      "keepDistance": false,
+      "keepDistanceRange": 1,
+      "dynamicLureDelay": false,
+      "danger": 1,
+      "delayFrom": 2,
+      "closeLure": false,
+      "faceMonster": false,
+      "lureCavebot": false,
+      "dontLoot": false,
+      "diamondArrows": false,
+      "lure": false,
+      "anchor": false,
+      "closeLureAmount": 3,
+      "rePosition": false,
+      "dynamicLure": false,
+      "regex": "^dragon lord hatchling$"
+    }
+  ]
+}
